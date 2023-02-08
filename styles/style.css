@@ -1,3 +1,10 @@
-.navbar-brand{
+.navbar-brand {
     text-align: center;
+}
+
+.display-4,
+.lead {
+    text-align: center;
+    padding-top: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
