@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
+    <title>Message Board</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -22,6 +22,7 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/messageboard.css">
 
 
 </head>
@@ -64,13 +65,63 @@
         </div>
     </nav>
 
-    <!-- Jumbotron/Welcome Message by Oceaan -->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">CONNECT4U</h1>
-            <p class="lead">Connect with your local community in times of emergency</p>
+    <!-- message board by Oceaan -->
+
+    <div class="container" id="message-input">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"> <img height="23" src="./images/userplaceholder.jpeg">
+                </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                aria-describedby="basic-addon1" id="username">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Message</span>
+            </div>
+            <textarea class="form-control" aria-label="With textarea" id="message"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="submitMessage()" id="submit-message">Submit</button>
+    </div>
+
+    <!-- border -->
+    <div class="border-top"></div>
+
+
+    <div class="container-fluid" id="message-board">
+        <!-- SEE HERE GRACE: Template for message posts -->
+        <div class="message container">
+            <div class="row">
+                <div class="col-2">
+                    <img width="80px" height="80px" src="./images/userplaceholder.jpeg">
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Username</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit illo
+                                repellendus
+                                perspiciatis! Exercitationem quas autem nobis fugiat commodi sint assumenda neque
+                                eveniet,
+                                explicabo at praesentium quidem porro dolorem dicta ut accusamus voluptatibus sequi
+                                nesciunt
+                                ipsa itaque labore a illum minus consectetur? Nisi, inventore praesentium suscipit
+                                quam
+                                odit
+                                illo minus. Placeat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
 
 
@@ -80,7 +131,8 @@
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./scripts/message.js"></script>
 
 </body>
 
