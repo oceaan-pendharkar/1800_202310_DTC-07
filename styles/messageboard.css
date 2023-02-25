@@ -2,3 +2,7 @@
 #message-input {
     padding: 50px;
 }
+
+a:hover {
+    cursor: pointer;
+}
