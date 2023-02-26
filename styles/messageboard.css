@@ -9,3 +9,12 @@
 a:hover {
     cursor: pointer;
 }
+
+.seekHelp, 
+.information {
+    color : #83BCD4;
+}
+
+.link {
+    color: #5C8A94;
+}

@@ -5,5 +5,6 @@
 function loadSkeleton(){
     console.log($('#navbarPlaceholder').load('./frame/nav.html'));
     console.log($('#footerPlaceholder').load('./frame/footer.html'));
+    console.log($('#seekHelpPlaceholder').load('./messageTab/seekHelp.html'));
 }
 loadSkeleton();  //invoke the function
