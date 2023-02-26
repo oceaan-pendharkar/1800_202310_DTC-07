@@ -1,14 +1,30 @@
-.navbar-brand {
-    text-align: center;
+/* new color and font styles */
+
+:root {
+    --theme: #83BCD4;
+    --darkerTheme:#5C8A94;
+    --contrastorange: #DE905c;
 }
 
-.display-4,
-.lead {
-    text-align: center;
-    padding-top: 10%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+/* color */
+
+.theme {
+    background-color: var(--theme);
 }
 
+.darkerTheme {
+    background-color: var(--darkerTheme);
+}
+
+.contrastOrange {
+    color: var(--contrastOrange);
+}
+
+/* font */
+
+/* Bootstrap item redefine */
 .btn-primary {
-    color:white
+    color:white;
+    background-color: #5C8A94 !important;
+    border-color:#5C8A94 !important;
 }

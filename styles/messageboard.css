@@ -1,6 +1,9 @@
-.message,
 #message-input {
-    padding: 50px;
+    padding: 120px 20px 20px 20px;
+}
+
+.message {
+    padding: 20px 20px 80px 20px;
 }
 
 a:hover {
