@@ -1,0 +1,20 @@
+#message-input {
+    padding: 120px 20px 20px 20px;
+}
+
+.message {
+    padding: 20px 20px 80px 20px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.seekHelp, 
+.information {
+    color : #83BCD4;
+}
+
+.link {
+    color: #5C8A94;
+}
