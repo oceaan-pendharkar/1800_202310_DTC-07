@@ -6,8 +6,8 @@ function submitMessage() {
 
 
     if (document.getElementById("inlineRadio1").checked) {
-    $("#message-board-information").prepend(
-    `<div class="message container">
+        $("#message-board-information").prepend(
+            `<div class="message container">
         <div class="row">
             <div class="col-2">
                     <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
@@ -27,9 +27,10 @@ function submitMessage() {
             </div>
         </div>        
     </div>`
-        ); } else if (document.getElementById("inlineRadio2").checked) {
-    $("#message-board-seekHelp").prepend(
-    `<div class="message container">
+        );
+    } else if (document.getElementById("inlineRadio2").checked) {
+        $("#message-board-seekHelp").prepend(
+            `<div class="message container">
         <div class="row">
             <div class="col-2">
                     <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
