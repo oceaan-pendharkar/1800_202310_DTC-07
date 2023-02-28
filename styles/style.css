@@ -23,7 +23,8 @@
 /* font */
 
 /* Bootstrap item redefine */
-.btn-primary {
+.btn-primary,
+.form-check-input:checked {
     color:white;
     background-color: #5C8A94 !important;
     border-color:#5C8A94 !important;

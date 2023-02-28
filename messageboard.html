@@ -39,16 +39,29 @@
     <!-- message board by Oceaan & Grace-->
 
     <div class="container" id="message-input">
+        <!-- username -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"> <img height="23" src="./images/userplaceholder.jpeg">
+                <span class="input-group-text" id="basic-addon1"> 
+                    <img height="23" src="./images/userplaceholder.jpeg">
                 </span>
             </div>
             <input type="text" class="form-control" placeholder="Username" aria-label="Username"
                 aria-describedby="basic-addon1" id="username">
         </div>
 
-        <div class="input-group">
+        <!-- radio buttons -->
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="information">
+            <label class="form-check-label" for="inlineRadio1">Information</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="seekHelp">
+            <label class="form-check-label" for="inlineRadio2">Seeking Help</label>
+        </div>
+
+        <!-- message -->
+        <div class="input-group mt-3">
             <!-- <div class="input-group-prepend">
                 <span class="input-group-text">Message</span>
             </div> -->
@@ -73,10 +86,10 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <nav id="informationPlaceholder"></nav>
+            <div id="informationPlaceholder"></div>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            this is seeking help page placeholder
+            <div id="seekHelpPlaceholder"></div>
         </div>
     </div>
 
