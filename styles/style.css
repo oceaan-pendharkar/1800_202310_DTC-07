@@ -29,3 +29,9 @@
     background-color: #5C8A94 !important;
     border-color:#5C8A94 !important;
 }
+
+.btn-info {
+    color:rgb(62, 62, 62);
+    background-color: #83BCD4;
+    border-color: #83BCD4;
+}
