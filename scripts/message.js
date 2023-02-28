@@ -3,7 +3,7 @@ function submitMessage() {
     // just a placeholder until we know what to do here
     let username = document.getElementById("username").value;
     let message = document.getElementById("message").value;
-    $("#message-board").prepend(`
+    $("#message-board-information").prepend(`
     <div class="message container">
         <div class="row">
             <div class="col-2">
