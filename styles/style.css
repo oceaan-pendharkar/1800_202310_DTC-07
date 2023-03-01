@@ -2,7 +2,7 @@
 
 :root {
     --theme: #83BCD4;
-    --darkerTheme:#5C8A94;
+    --darkerTheme: #5C8A94;
     --contrastorange: #DE905c;
 }
 
@@ -25,13 +25,13 @@
 /* Bootstrap item redefine */
 .btn-primary,
 .form-check-input:checked {
-    color:white;
+    color: white;
     background-color: #5C8A94 !important;
-    border-color:#5C8A94 !important;
+    border-color: #5C8A94 !important;
 }
 
 .btn-info {
-    color:rgb(62, 62, 62);
+    color: rgb(62, 62, 62);
     background-color: #83BCD4;
     border-color: #83BCD4;
 }

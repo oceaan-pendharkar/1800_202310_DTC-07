@@ -1,0 +1,14 @@
+:root {
+    --theme: #83BCD4;
+    --darkerTheme: #5C8A94;
+    --contrastorange: #DE905c;
+}
+
+h5 {
+    color: var(--theme);
+}
+
+h1 {
+    color: var(--darkerTheme);
+    margin-top: 100px;
+}
