@@ -10,5 +10,7 @@ h5 {
 
 h1 {
     color: var(--darkerTheme);
-    margin-top: 100px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 50px;
 }
