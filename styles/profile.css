@@ -14,3 +14,9 @@ h1 {
     text-align: center;
     padding: 50px;
 }
+
+.btn-secondary {
+    background-color: var(--contrastorange);
+    border: none;
+    color: black;
+}
