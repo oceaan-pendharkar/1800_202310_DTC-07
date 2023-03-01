@@ -2,12 +2,12 @@
 //  Your web app's Firebase configuration
 //----------------------------------------
 var firebaseConfig = {
-    apiKey: "AIzaSyCia9rtaN66AFuCKHtShnSEOKGKXmkA07k",
-    authDomain: "fir-9cbc1.firebaseapp.com",
-    projectId: "fir-9cbc1",
-    storageBucket: "fir-9cbc1.appspot.com",
-    messagingSenderId: "1057930364151",
-    appId: "1:1057930364151:web:a27fefda0fe5b6181bbff2"
+    apiKey: "AIzaSyBidO_lZNGfC9RJo-S3V9Lb-E3vNknGhP8",
+  authDomain: "dtc07-4a4f6.firebaseapp.com",
+  projectId: "dtc07-4a4f6",
+  storageBucket: "dtc07-4a4f6.appspot.com",
+  messagingSenderId: "619291419634",
+  appId: "1:619291419634:web:8b0e51e21e534df4f9016b"
 };
 
 //--------------------------------------------
