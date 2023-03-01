@@ -4,6 +4,7 @@
     --theme: #83BCD4;
     --darkerTheme: #5C8A94;
     --contrastorange: #DE905c;
+    --text: #81868d;
 }
 
 /* color */
@@ -17,7 +18,11 @@
 }
 
 .contrastOrange {
-    color: var(--contrastOrange);
+    background-color: var(--contrastOrange);
+}
+
+.text {
+    color: var(--text);
 }
 
 /* font */
