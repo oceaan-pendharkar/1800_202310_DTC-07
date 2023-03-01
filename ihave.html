@@ -36,7 +36,7 @@
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="./styles/style.css">
-  
+
 
 
 
@@ -49,7 +49,7 @@
 
   <!-- our own navbar goes here -->
   <nav id="navbarPlaceholder"></nav>
-  
+
 
   <!-- the body of your page goes here -->
 
@@ -249,9 +249,8 @@
           </label>
         </div>
         <br>
-        <a href="#otherModal" role="button" style="border: 1px, solid, black;" class="btn btn-secondary btn-sm active"
-          data-bs-toggle="modal">Other</a>
-  
+        <button href="#edit-items" role="button" style="border: 1px, solid, black;"
+          class="btn btn-secondary btn-sm active" data-bs-toggle="modal">Other</button>
       </div>
     </div>
   </div>
@@ -261,13 +260,12 @@
   </div>
 
   <!-- Popup-->
-
-  <div class="modal" id="otherModal" tabindex="-1" role="dialog">
+  <div class="modal" id="edit-items" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">What else do you have to offer? </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close" onlick="">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -276,24 +274,23 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-  </div>
 
 
-  <!-- our own footer goes here-->
-  <nav id="footerPlaceholder"></nav>
+    <!-- our own footer goes here-->
+    <nav id=" footerPlaceholder"></nav>
 
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-  <script src="./scripts/firebaseAPI_TEAM99.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/main.js"></script>
-  <script src="./script/ihave.js"></script>
-  <!-- <script src="./scripts/script.js"></script> -->
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/ihave.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 
