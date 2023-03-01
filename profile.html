@@ -102,8 +102,25 @@
         </section>
     </div>
 
-    <div id="profile-editing">
-        <h1>adsfasdfasdf</h1>
+    <div id="profile-editing" class="container-fluid">
+        <h1 id="h1-profile-edit">Edit Personal Info</h1>
+        <form id="edit-profile">
+            <div class="form-group .theme">
+                <label for="exampleFormControlFile1">Change photo</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <div class="form-group">
+                <label for="email">Enter your email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Enter your phone number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </div>
+            <button id="submit-changes" type="button" class="btn btn-secondary">Submit changes</button>
+
+        </form>
+
     </div>
 
     <!-- our own footer goes here-->

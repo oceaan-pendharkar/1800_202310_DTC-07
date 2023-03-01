@@ -23,6 +23,11 @@ $("#edit-profile").click(function () {
     $("#profile-editing").show();
 });
 
+$("#submit-changes").click(function () {
+    $("#profile").show();
+    $("#profile-editing").hide();
+});
+
 const setup = () => {
     console.log("Hello World!")
     $("#profile-editing").hide();

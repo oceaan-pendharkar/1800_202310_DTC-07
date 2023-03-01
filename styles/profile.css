@@ -24,3 +24,22 @@ h1 {
 .text {
     margin-top: 22px;
 }
+
+#h1-profile-edit {
+    margin-top: 40px;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+input {
+    margin: 10px;
+}
+
+.form-group {
+    padding: 10px;
+}
+
+#submit-changes {
+    float: right;
+    margin: 10px;
+}
