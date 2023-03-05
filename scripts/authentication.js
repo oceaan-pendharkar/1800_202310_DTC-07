@@ -21,7 +21,7 @@ var uiConfig = {
           name: user.displayName,                    //"users" collection
           email: user.email,                         //with authenticated user's ID (user.uid)
           phone: "",
-          neighbourhood: "BCIT",
+          neighbourhood: "",
           items: []
         }).then(function () {
           console.log("New user added to firestore");
