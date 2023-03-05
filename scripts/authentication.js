@@ -20,7 +20,7 @@ var uiConfig = {
         db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
           name: user.displayName,                    //"users" collection
           email: user.email,                         //with authenticated user's ID (user.uid)
-          phone: "Canada",
+          phone: "",
           neighbourhood: "BCIT",
           items: []
         }).then(function () {
