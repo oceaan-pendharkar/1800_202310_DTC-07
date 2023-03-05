@@ -39,7 +39,6 @@ $("#submit-changes").click(function () {
 const setup = () => {
     console.log("Hello World!")
     $("#profile-editing").hide();
-
 }
 
 $(document).ready(setup)
