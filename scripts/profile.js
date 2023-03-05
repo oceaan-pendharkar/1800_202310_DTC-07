@@ -26,12 +26,45 @@ insertProfileInfo()
 
 
 
+function editProfile() {
+    // to check if the user is logged in:
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            console.log(user.uid); // let me to know who is the user that logged in to get the UID
+            currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
+            currentUser.get().then(userDoc => {
+                //get the user name
+                var photo = document.getElementById("profile-image").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var neighbourhood = document.getElementById("neighbourhood").value;
+
+                //change photo
+                document.getElementById("photo-goes-here").src = photo;
+
+                //change values in database
+                currentUser.update({
+                    photo: photo,
+                    email: email,
+                    phone: phone,
+                    neighbourhood: neighbourhood
+                })
+
+            })
+        }
+    })
+
+}
+
+
+
 $("#edit-profile").click(function () {
     $("#profile").hide();
     $("#profile-editing").show();
 });
 
 $("#submit-changes").click(function () {
+    editProfile();
     $("#profile").show();
     $("#profile-editing").hide();
 });
