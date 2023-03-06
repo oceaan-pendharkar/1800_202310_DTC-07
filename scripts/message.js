@@ -6,7 +6,7 @@ function submitMessage() {
 
 
     if (document.getElementById("inlineRadio1").checked) {
-        $("#message-board-information").prepend(
+        $("#messageposts").prepend(
             `<div class="message container">
         <div class="row">
             <div class="col-2">
@@ -29,7 +29,7 @@ function submitMessage() {
     </div>`
         );
     } else if (document.getElementById("inlineRadio2").checked) {
-        $("#message-board-seekHelp").prepend(
+        $("#messageposts").prepend(
             `<div class="message container">
         <div class="row">
             <div class="col-2">
