@@ -7,6 +7,13 @@
     --text: #81868d;
 }
 
+/* box shadow class */
+.box-shadow {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
+    position: relative;
+    z-index: 10;
+}
+
 /* color */
 
 .theme {
