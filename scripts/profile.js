@@ -39,7 +39,7 @@ function editProfile() {
                 var phone = document.getElementById("phone").value;
                 var neighbourhood = document.getElementById("neighbourhood").value;
 
-                //make sure user entered something new in each field if we are going to change it
+                // make sure user entered something new in each field if we are going to change it
                 if (username == "") {
                     username = userDoc.data().name;
                 }
@@ -82,15 +82,17 @@ $("#edit-profile").click(function () {
     $("#profile-editing").show();
 });
 
-$("#submit-changes").click(function () {
-    editProfile();
-    $("#profile-editing").hide();
-    $("#profile").show();
-});
+
 
 const setup = () => {
     console.log("Hello World!")
     $("#profile-editing").hide();
+
+    $("#submit-changes").click(function () {
+        editProfile();
+        $("#profile-editing").hide();
+        $("#profile").show();
+    });
 
 }
 
