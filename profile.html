@@ -107,20 +107,24 @@
     <div id="profile-editing" class="container-fluid">
         <h1 id="h1-profile-edit">Edit Personal Info</h1>
         <form id="edit-profile">
+            <div class="form-group">
+                <label for="username">Enter your username to update:</label>
+                <input type="text" id="username" name="username">
+            </div>
             <div class="form-group .theme">
                 <label for="profile-image">Change photo</label>
                 <input type="file" class="form-control-file" id="profile-image">
             </div>
             <div class="form-group">
-                <label for="email">Enter your email:</label>
+                <label for="email">Enter your email to update:</label>
                 <input type="email" id="email" name="email">
             </div>
             <div class="form-group">
-                <label for="phone">Enter your phone number:</label>
+                <label for="phone">Enter your phone number to update:</label>
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
             <div class="form-group">
-                <label for="neighbourhood">Enter your neighbourhood:</label>
+                <label for="neighbourhood">Enter your neighbourhood to update:</label>
                 <input type="text" id="neighbourhood" name="neighbourhood">
             </div>
             <button id="submit-changes" type="button" class="btn btn-secondary">Submit changes</button>

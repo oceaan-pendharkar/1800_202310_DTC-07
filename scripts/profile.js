@@ -34,6 +34,7 @@ function editProfile() {
             currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
             currentUser.get().then(userDoc => {
                 //get the user name
+                var username = document.getElementById("username").value;
                 var photo = document.getElementById("profile-image").value;
                 var email = document.getElementById("email").value;
                 var phone = document.getElementById("phone").value;
@@ -44,6 +45,7 @@ function editProfile() {
 
                 //change values in database
                 currentUser.update({
+                    name: username,
                     photo: photo,
                     email: email,
                     phone: phone,
