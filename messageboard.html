@@ -18,12 +18,21 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/messageboard.css">
-
 
 </head>
 
@@ -53,11 +62,11 @@
 
         <!-- radio buttons -->
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="information">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="info_radio" value="information">
             <label class="form-check-label" for="inlineRadio1">Information</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="seekHelp">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="seekHelp_radio" value="seekHelp">
             <label class="form-check-label" for="inlineRadio2">Seeking Help</label>
         </div>
 
@@ -112,6 +121,7 @@
 
     <!-- Link to scripts of your own -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/message.js"></script>
     <script src="./scripts/skeleton.js"></script>
 
