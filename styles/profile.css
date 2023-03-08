@@ -4,15 +4,20 @@
     --contrastorange: #DE905c;
 }
 
+* {
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
 h5 {
     color: var(--theme);
 }
 
 h1 {
     color: var(--darkerTheme);
-    margin-top: 20px;
+    margin-top: 100px;
     text-align: center;
-    padding: 50px;
+    padding: 5px;
 }
 
 .btn-secondary {
@@ -21,25 +26,11 @@ h1 {
     color: black;
 }
 
-.text {
-    margin-top: 22px;
-}
-
-#h1-profile-edit {
-    margin-top: 40px;
-    padding-bottom: 0;
-    text-align: center;
-}
-
-input {
-    margin: 10px;
-}
-
 .form-group {
     padding: 10px;
+
 }
 
-#submit-changes {
-    float: right;
-    margin: 10px;
+#editItems {
+    margin-bottom: 60px;
 }

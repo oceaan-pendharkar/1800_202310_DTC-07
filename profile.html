@@ -27,9 +27,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    
+
     <!-- Other libraries and styles of your own -->
-    
+
     <!-- <link rel="stylesheet" href="./styles/main.css"> -->
     <link rel="stylesheet" href="./styles/profile.css">
     <link rel="stylesheet" href="./styles/style.css">
@@ -47,88 +47,43 @@
     <!-- the body of your page goes here -->
 
     <!-- profile -->
-    <div id="profile" class="container-fluid">
-        <section class="vh-100">
-            <div class="container py-5 h-100">
-                <h1>Profile</h1>
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col col-lg-6 mb-4 mb-lg-0">
-                        <div class="card" style="border-radius: .5rem;">
-                            <div class="row g-0 box-shadow">
-                                <div class="col-md-4 text-center">
-                                    <img id="photo-goes-here" src="./images/userplaceholder.jpeg" alt="Avatar"
-                                        class="img-fluid my-5" style="width: 150px;" />
-                                    <h5 id="name-goes-here">My Name</h5>
-                                    <button id="edit-profile" type="button"
-                                        class="btn btn-secondary box-shadow">Edit</button>
-                                </div>
-                                <div class="col-md-8 text">
-                                    <div class="card-body p-4">
-                                        <h6>Contact</h6>
-                                        <hr class="mt-0 mb-4">
-                                        <div class="row pt-1">
-                                            <div class="col-6 mb-3">
-                                                <h6>Email</h6>
-                                                <p id="email-goes-here" class="text-muted"></p>
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <h6>Phone</h6>
-                                                <p id="phone-goes-here" class="text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <h6>Info</h6>
-                                        <hr class="mt-0 mb-4">
-                                        <div class="row pt-1">
-                                            <div class="col-6 mb-3">
-                                                <h6>Neighbourhood</h6>
-                                                <p id="neighbourhood-goes-here" class="text-muted"></p>
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <h6>Items to share</h6>
-                                                <p class="text-muted" id="items-go-here">
-                                                    <br>
-                                                </p>
-                                                <a href="ihave.html">Edit</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container">
+        <h1>User Profile </h1>
+        <form>
+            <fieldset class="mb-3" id="personalInfoFields" disabled>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
+                <div class="form-group">
+                    <label>Neighbourhood</label>
+                    <input type="text" id="neighbourhoodInput" class="form-control"
+                        placeholder="Enter your neighbourhood">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phoneInput" class="form-control" placeholder="Enter your phone number"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </div>
+            </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
             </div>
-        </section>
-    </div>
-
-    <!-- profile editing  -->
-    <div id="profile-editing" class="container-fluid">
-        <h1 id="h1-profile-edit">Edit Personal Info</h1>
-        <form id="edit-profile">
-            <div class="form-group">
-                <label for="username">Enter your username to update:</label>
-                <input type="text" id="username" name="username">
+            <div class="justify-content-end mt-5">
+                <h2>Items</h2>
+                <p>Items go here...</p>
+                <button type="button" class="btn btn-secondary" id="editItems" onclick="editItems()">Edit
+                    Items</button>
             </div>
-            <div class="form-group .theme">
-                <label for="profile-image">Change photo</label>
-                <input type="file" class="form-control-file" id="profile-image">
-            </div>
-            <div class="form-group">
-                <label for="email">Enter your email to update:</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="phone">Enter your phone number to update:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-            </div>
-            <div class="form-group">
-                <label for="neighbourhood">Enter your neighbourhood to update:</label>
-                <input type="text" id="neighbourhood" name="neighbourhood">
-            </div>
-            <button id="submit-changes" type="button" class="btn btn-secondary box-shadow">Submit changes</button>
         </form>
-
     </div>
+
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>

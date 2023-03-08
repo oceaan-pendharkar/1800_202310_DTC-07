@@ -1,99 +1,70 @@
-function insertProfileInfo() {
-    // to check if the user is logged in:
+var currentUser;
+
+function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
         if (user) {
-            console.log(user.uid); // let me to know who is the user that logged in to get the UID
-            currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
-            currentUser.get().then(userDoc => {
-                //get the user name
-                var userName = userDoc.data().name;
-                var email = userDoc.data().email;
-                var phone = userDoc.data().phone;
-                var neighbourhood = userDoc.data().neighbourhood;
-                var items = userDoc.data().items;
-                console.log(userName);
-                //$("#name-goes-here").text(userName); //jquery
-                document.getElementById("name-goes-here").innerText = userName;
-                document.getElementById("email-goes-here").innerText = email;
-                document.getElementById("phone-goes-here").innerText = phone;
-                document.getElementById("neighbourhood-goes-here").innerText = neighbourhood;
-                document.getElementById("items-go-here").innerText = items;
-            })
-        }
-    })
-}
-insertProfileInfo()
 
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    var userName = userDoc.data().name;
+                    var userNeighbourhood = userDoc.data().neighbourhood;
+                    var userCity = userDoc.data().city;
+                    var userPhone = userDoc.data().phone;
 
-
-function editProfile() {
-    // to check if the user is logged in:
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            console.log(user.uid); // let me to know who is the user that logged in to get the UID
-            currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
-            currentUser.get().then(userDoc => {
-                var username = document.getElementById("username").value;
-                var photo = document.getElementById("profile-image").value;
-                var email = document.getElementById("email").value;
-                var phone = document.getElementById("phone").value;
-                var neighbourhood = document.getElementById("neighbourhood").value;
-
-                // make sure user entered something new in each field if we are going to change it
-                if (username == "") {
-                    username = userDoc.data().name;
-                }
-                if (photo == "") {
-                    photo = userDoc.data().photo;
-                }
-                if (email == "") {
-                    email = userDoc.data().email;
-                }
-                if (phone == "") {
-                    phone = userDoc.data().phone;
-                }
-
-                if (neighbourhood == "") {
-                    neighbourhood = userDoc.data().neighbourhood;
-                }
-
-                //change photo
-                document.getElementById("photo-goes-here").src = photo;
-
-                //change values in database
-                currentUser.update({
-                    name: username,
-                    photo: photo,
-                    email: email,
-                    phone: phone,
-                    neighbourhood: neighbourhood
+                    //if the data fields are not empty, then write them in to the form.
+                    if (userName != null) {
+                        document.getElementById("nameInput").value = userName;
+                    }
+                    if (userNeighbourhood != null) {
+                        document.getElementById("negihbourhoodInput").value = userSchool;
+                    }
+                    if (userCity != null) {
+                        document.getElementById("cityInput").value = userCity;
+                    }
+                    if (userCity != null) {
+                        document.getElementById("phoneInput").value = userCity;
+                    }
                 })
-
-            })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
         }
+    });
+}
+
+//call the function to run it 
+populateUserInfo();
+
+function editUserInfo() {
+    //Enable the form fields
+    document.getElementById('personalInfoFields').disabled = false;
+}
+
+function saveUserInfo() {
+
+    //get the values from the form fields
+    var name = document.getElementById("nameInput").value;
+    var neighbourhood = document.getElementById("neighbourhoodInput").value;
+    var city = document.getElementById("cityInput").value;
+    var phone = document.getElementById("phoneInput").value;
+
+    //update the user document with the new data
+    currentUser.update({
+        name: name,
+        neighbourhood: neighbourhood,
+        city: city,
+        phone: phone
     })
 
+    //Disable the form fields
+    document.getElementById('personalInfoFields').disabled = true;
 }
 
-
-
-$("#edit-profile").click(function () {
-    $("#profile").hide();
-    $("#profile-editing").show();
-});
-
-
-
-const setup = () => {
-    console.log("Hello World!")
-    $("#profile-editing").hide();
-
-    $("#submit-changes").click(function () {
-        editProfile();
-        $("#profile-editing").hide();
-        $("#profile").show();
-    });
+function editItems() {
 
 }
-
-$(document).ready(setup)
