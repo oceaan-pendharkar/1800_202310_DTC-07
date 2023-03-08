@@ -1,6 +1,6 @@
 function populateDropdown() {
     // Fetch the documents from the collection
-    resources.get().then((querySnapshot) => {
+    resourcesRef.get().then((querySnapshot) => {
       // Loop through each document and get its string fields
       const values = [];
       querySnapshot.forEach((doc) => {
@@ -16,7 +16,7 @@ function populateDropdown() {
       values.forEach((value) => {
         const option = document.createElement("option");
         option.text = value;
-        resource-dropdown.add(option);
+        my-dropdown.add(option);
       });
     });
   }

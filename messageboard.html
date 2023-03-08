@@ -111,6 +111,38 @@
         </div>
     </div>
 
+    <!--a container element that holds the heading "Some popular hikes." 
+Inside this container, there is another container element with an ID "hikes-go-here". 
+This container will hold the cards for each hike that will be dynamically added using JavaScript.-->
+<div class="container">
+    <h1>Previous messages</h1>
+    <!-- Here is the container for cards  -->
+    <div class="container">
+        <div id="previous-messages" class="row row-cols-auto">
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <button id="prev-btn" class="btn btn-primary">Previous</button>
+        <button id="next-btn" class="btn btn-primary">Next</button>
+    </div>
+</div>
+
+<!-- Templates for general use, not displayed -->
+<template id="messageCardTemplate">
+    <div class="card py-2 mx-2" style="width: 18rem">
+        <img class="card-image card-img-top" src=" ..." alt="..." />
+        <div class="card-body">
+            <h5 class="card-title">Message</h5>
+            <p class="card-length">placeholder</p>
+            <br />
+            <p class="card-text">
+                lom ipsum dolor sit amet consectetur adipisicing elit. Suscipit illo repellendus.
+            </p>
+            <a class="btn btn-primary card-href">Read more ...</a>
+        </div>
+    </div>
+</template>
+
     <!-- footer by Grace -->
     <nav id="footerPlaceholder"></nav>
 
