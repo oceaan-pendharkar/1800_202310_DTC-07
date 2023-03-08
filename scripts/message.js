@@ -43,7 +43,8 @@ function submitMessage() {
                         uid: user.uid,
                         message: message
                     })
-                }
+                } 
+                $("#message").val(""); //clear the message box
 
                 // front-end submitted message goes here
                 //check if the user is posting a info message or a seek help request
