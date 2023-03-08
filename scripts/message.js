@@ -37,61 +37,71 @@ function submitMessage() {
                 console.log(message);
 
                 //push message to firestore
-                postsRef.add({
-                    name: userName,
-                    uid: user.uid,
-                    message: message
-                })
+                if (message != "") {
+                    postsRef.add({
+                        name: userName,
+                        uid: user.uid,
+                        message: message
+                    })
+                }
 
                 // front-end submitted message goes here
                 //check if the user is posting a info message or a seek help request
                 if (document.getElementById("info_radio").checked) {
-                    $("#messageposts").prepend(
-                        `<div class="message container">
-                            <div class="row">
-                                <div class="col-2">
-                                        <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
-                                </div>
-                                <div class="col-10">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h5>${userName}</h5>
-                                        </div>
+                    if (message != "") {
+                        $("#messageposts").prepend(
+                            `<div class="message container">
+                                <div class="row">
+                                    <div class="col-2">
+                                            <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p>${message}</p>
-                                            <a class="link">Contact User</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>        
-                        </div>`
-                    );
-                } else if (document.getElementById("seekHelp_radio").checked) {
-                    $("#messageposts").prepend(
-                        `<div class="message container">
-                            <div class="row">
-                                <div class="col-2">
-                                        <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
-                                </div>
-                                <div class="col-10">
+                                    <div class="col-10">
                                         <div class="row">
-                                        <div class="col-12">
-                                            <h5>${userName}</h5>
+                                            <div class="col-12">
+                                                <h5>${userName}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p>${message}</p>
+                                                <a class="link">Contact User</a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p>${message}</p>
-                                            <a class="link">Contact User</a>
+                                </div>        
+                            </div>`
+                        )} else {
+                            alert("Please enter a message");
+                        };
+                } else if (document.getElementById("seekHelp_radio").checked) {
+                    if (message != "") {
+                        $("#messageposts").prepend(
+                            `<div class="message container">
+                                <div class="row">
+                                    <div class="col-2">
+                                            <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
+                                    </div>
+                                    <div class="col-10">
+                                            <div class="row">
+                                            <div class="col-12">
+                                                <h5>${userName}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p>${message}</p>
+                                                <a class="link">Contact User</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>        
-                        </div>`
-                    );
-                }
+                                </div>        
+                            </div>`
+                        )} else {
+                            alert("Please enter a message");
+                        };
+                } else if (message == "") {
+                    alert("Please select the category and enter a message");
+                };
 
                 console.log(userName, message);
                 // above is the front-end submitted message template
