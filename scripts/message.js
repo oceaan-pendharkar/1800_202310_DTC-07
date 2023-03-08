@@ -85,7 +85,7 @@ function submitMessage() {
                                     <div class="col-10">
                                             <div class="row">
                                             <div class="col-12">
-                                                <h5>${userName}</h5>
+                                                <h5><span><img height="30" src="./images/sos.png" alt=""></span> ${userName}</h5>
                                             </div>
                                         </div>
                                         <div class="row">
