@@ -21,13 +21,13 @@ function populateUserInfo() {
                         document.getElementById("nameInput").value = userName;
                     }
                     if (userNeighbourhood != null) {
-                        document.getElementById("negihbourhoodInput").value = userSchool;
+                        document.getElementById("neighbourhoodInput").value = userNeighbourhood;
                     }
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
                     if (userCity != null) {
-                        document.getElementById("phoneInput").value = userCity;
+                        document.getElementById("phoneInput").value = userPhone;
                     }
                 })
         } else {
