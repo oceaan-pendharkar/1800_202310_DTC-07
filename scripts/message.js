@@ -115,19 +115,20 @@ function submitMessage() {
 
 }
 
-function renderPosts() {
+function renderPosts(posts) {
     let cardTemplate = document.getElementById("messageCardTemplate");
 
     for (var i = startIndex; i <= endIndex; i++) {
         var doc = allPosts.docs[i];
         var name = doc.data().name;       // get value of the "name" key
         var message = doc.data().message;  // get value of the "messages" key
-        var docID = doc.id;
+        // var docID = doc.id; USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update title and text and image
         newcard.querySelector('.card-title').innerHTML = name;
         newcard.querySelector('.card-text').innerHTML = message;
+        // newcard.querySelector('a').href = "eachHike.html?docID="+docID; USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
 
         //attach to gallery,//
         document.getElementById("previous-messages").appendChild(newcard);
@@ -140,7 +141,7 @@ function renderPosts() {
 const cardsPerPage = 3;
 var startIndex = 0;
 var endIndex = cardsPerPage - 1;
-var allHikes;
+var allPosts;
 
 function displayCardsDynamically(posts) {
     db.collection(posts).get()   
@@ -153,14 +154,34 @@ function displayCardsDynamically(posts) {
 displayCardsDynamically("posts");  //input param is the name of the collection
 
 
+var prevButton = document.getElementById("prev-msg-btn");
+var nextButton = document.getElementById("next-msg-btn");
 
 
-
-
-
-const setup = () => {
-    console.log("Hello World!")
-
+// Define a function to handle clicks on the prev button
+function handlePrevClick() {
+    document.getElementById("previous-messages").innerHTML = '';
+    if (startIndex > 0) {
+        startIndex -= cardsPerPage;
+        endIndex -= cardsPerPage;
+        renderPosts();
+    }
 }
+
+// Define a function to handle clicks on the next button
+function handleNextClick() {
+    document.getElementById("previous-messages").innerHTML = '';
+    if (endIndex < allHikes.docs.length - 1) {
+        startIndex += cardsPerPage;
+        endIndex += cardsPerPage;
+        renderPosts();
+    }
+}
+
+// Add event listeners to the prev/next buttons
+prev-msg-btn.addEventListener("click", handlePrevClick);
+next-msg-btn.addEventListener("click", handleNextClick);
+
+
 
 $(document).ready(setup)
