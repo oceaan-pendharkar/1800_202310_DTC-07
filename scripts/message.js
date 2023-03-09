@@ -15,7 +15,7 @@ function userMessageInfo() {
         }
     })
 }
-userMessageInfo()
+userMessageInfo();
 
 
 function submitMessage() {
