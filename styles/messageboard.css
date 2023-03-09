@@ -18,3 +18,12 @@ a:hover {
 .link {
     color: #5C8A94;
 }
+
+.time {
+    font-size: 1px;
+    color: #b6b6b6;
+}
+
+#username {
+    margin-bottom: 3px;
+}

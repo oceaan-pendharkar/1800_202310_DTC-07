@@ -15,9 +15,7 @@ function userMessageInfo() {
         }
     })
 }
-userMessageInfo()
-
-
+userMessageInfo();
 
 
 function submitMessage() {
@@ -35,6 +33,7 @@ function submitMessage() {
                 //get the message
                 var message = document.getElementById("message").value;
                 console.log(message);
+                var time = new Date().toLocaleString();
 
                 //push message to firestore
                 if (message != "") {
@@ -59,7 +58,8 @@ function submitMessage() {
                                     <div class="col-10">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5>${userName}</h5>
+                                                <h5  id="username">${userName}</h5>
+                                                <p class="time">${time}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -85,7 +85,8 @@ function submitMessage() {
                                     <div class="col-10">
                                             <div class="row">
                                             <div class="col-12">
-                                                <h5><span><img height="30" src="./images/sos.png" alt=""></span> ${userName}</h5>
+                                                <h5  id="username"><span><img height="30" src="./images/sos.png" alt=""></span> ${userName}</h5>
+                                                <p class="time">${time}</p>
                                             </div>
                                         </div>
                                         <div class="row">
