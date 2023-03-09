@@ -1,6 +1,12 @@
+// Get a reference to the HTML dropdown element where we will display the values
+const dropdown = document.getElementById("my-dropdown");
+
+// Get the collection reference for the desired collection
+const collectionRef = db.collection("resources");
+
 function populateDropdown() {
     // Fetch the documents from the collection
-    resourcesRef.get().then((querySnapshot) => {
+    collectionRef.get().then((querySnapshot) => {
       // Loop through each document and get its string fields
       const values = [];
       querySnapshot.forEach((doc) => {
@@ -16,7 +22,7 @@ function populateDropdown() {
       values.forEach((value) => {
         const option = document.createElement("option");
         option.text = value;
-        my-dropdown.add(option);
+        dropdown.add(option);
       });
     });
   }

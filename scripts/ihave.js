@@ -10,7 +10,7 @@ $(".close-btn").click(function () {
 
 
 function generateCheckboxes() {
-  const resourcesRef = firebase.firestore().collection('forFrontendDisplay');
+  const resourcesRef = firebase.firestore().collection('resources');
   const checkboxesContainer = document.getElementById('my-checkboxes');
   
   resourcesRef.get().then((querySnapshot) => {

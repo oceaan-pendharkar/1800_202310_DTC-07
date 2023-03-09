@@ -115,41 +115,45 @@ function submitMessage() {
 
 }
 
-const cardsPerPage = 3;
-var startIndex = 0;
-var endIndex = cardsPerPage - 1;
-var allHikes;
-
-function displayCardsDynamically(collection) {
-    db.collection(posts).get()   //the collection called "hikes"
-        .then(res=> {
-            allPosts = res;
-            renderPosts();
-        })
-}
-
-displayCardsDynamically("posts");  //input param is the name of the collection
-
-
 function renderPosts() {
     let cardTemplate = document.getElementById("messageCardTemplate");
 
     for (var i = startIndex; i <= endIndex; i++) {
         var doc = allPosts.docs[i];
         var name = doc.data().name;       // get value of the "name" key
-        var message = doc.data().message;  // get value of the "details" key
+        var message = doc.data().message;  // get value of the "messages" key
         var docID = doc.id;
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update title and text and image
-        newcard.querySelector('.card-name').innerHTML = name;
+        newcard.querySelector('.card-title').innerHTML = name;
         newcard.querySelector('.card-text').innerHTML = message;
 
-        //attach to gallery, Example: "hikes-go-here"
+        //attach to gallery,//
         document.getElementById("previous-messages").appendChild(newcard);
 
     }
 }
+
+
+ // for the previous messages //
+const cardsPerPage = 3;
+var startIndex = 0;
+var endIndex = cardsPerPage - 1;
+var allHikes;
+
+function displayCardsDynamically(posts) {
+    db.collection(posts).get()   
+        .then(res=> {
+            allPosts = res;
+            renderPosts("posts");
+        })
+}
+
+displayCardsDynamically("posts");  //input param is the name of the collection
+
+
+
 
 
 
