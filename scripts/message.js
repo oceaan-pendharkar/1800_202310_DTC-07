@@ -172,7 +172,7 @@ function handlePrevClick() {
 // Define a function to handle clicks on the next button
 function handleNextClick() {
     document.getElementById("previous-messages").innerHTML = '';
-    if (endIndex < allHikes.docs.length - 1) {
+    if (endIndex < allPosts.docs.length - 1) {
         startIndex += cardsPerPage;
         endIndex += cardsPerPage;
         renderPosts();

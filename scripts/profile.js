@@ -68,3 +68,26 @@ function saveUserInfo() {
 function editItems() {
 
 }
+
+
+function getItems() {
+
+// To get the selected items into the profile page
+
+import { collection, query, where, getDocs } from "resources";
+
+for (var i = 0; i = "resource".docs.length - 1; i++) {
+
+
+const q = query(collection(db, "resource"), where("doc", "==", true));
+
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  document.getElementById("user-item-list").appendChild(doc.data());
+
+});
+
+}}
+
+getItems()
