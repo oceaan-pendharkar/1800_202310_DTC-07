@@ -40,7 +40,8 @@ function submitMessage() {
                     postsRef.add({
                         name: userName,
                         uid: user.uid,
-                        message: message
+                        message: message,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     })
                 } 
                 $("#message").val(""); //clear the message box
