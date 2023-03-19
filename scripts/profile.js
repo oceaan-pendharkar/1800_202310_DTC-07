@@ -65,11 +65,9 @@ function saveUserInfo() {
     document.getElementById('personalInfoFields').disabled = true;
 }
 
-function editItems() {
 
-    
 
-}
+
 
 
 function getItems() {
