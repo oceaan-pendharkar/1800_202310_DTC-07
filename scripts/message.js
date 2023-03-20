@@ -120,7 +120,7 @@ function submitMessage() {
 
 }
 
-function renderPosts(posts) {
+function renderPosts() {
     let cardTemplate = document.getElementById("messageCardTemplate");
     let orderedPosts = allPosts.docs.sort((a, b) => b.data().timestamp - a.data().timestamp);
 
@@ -129,13 +129,13 @@ function renderPosts(posts) {
         var doc = orderedPosts[i];
         var name = doc.data().name;       // get value of the "name" key
         var message = doc.data().message;  // get value of the "messages" key
-        // var docID = doc.id; USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
+        var docID = doc.id; //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update title and text and image
         newcard.querySelector('.card-title').innerHTML = name;
         newcard.querySelector('.card-text').innerHTML = message;
-        // newcard.querySelector('.profile-link').href = "messageboard.html?docID=" + docID; //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
+        newcard.querySelector('.profile-link').href = "messageboard.html?docID=" + docID; //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
 
         //attach to gallery,//
         document.getElementById("previous-messages").appendChild(newcard);
@@ -154,7 +154,7 @@ function displayCardsDynamically(posts) {
     db.collection(posts).get()
         .then(res => {
             allPosts = res;
-            renderPosts("posts");
+            renderPosts();
         })
 }
 
@@ -191,4 +191,4 @@ nextButton.addEventListener("click", handleNextClick);
 
 
 
-$(document).ready(setup) 
+$(document).ready() 
