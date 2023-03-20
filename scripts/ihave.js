@@ -47,3 +47,37 @@ function generateCheckboxes() {
 
 // Call the generateCheckboxes function
 generateCheckboxes();
+
+
+/// To save selected checkboxes to Firestore in user's document
+
+function saveResourceUpdate() {
+  let Flooded = document.querySelector('input[name="flooded"]:checked').value;
+  let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
+
+
+  firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+          var currentUser = db.collection("users").doc(user.uid)
+          var userID = user.uid;
+          //get the document for current user.
+          currentUser.get()
+              .then(userDoc => {
+                  var userEmail = userDoc.data().email;
+                  db.collection("resources").add({
+                      hikeDocID: hikeDocID,
+                      userID: userID,
+                      title: Title,
+                      level: Level,
+                      season: Season,
+                     
+                  }).then(() => {
+                      window.location.href = "thanksresourcesupdate.html"; //new line added
+                  })
+              })
+      } else {
+          console.log("No user is signed in");
+          window.location.href = 'review.html';
+      }
+  });
+}
