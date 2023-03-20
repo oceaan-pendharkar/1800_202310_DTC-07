@@ -10,9 +10,9 @@ a:hover {
     cursor: pointer;
 }
 
-.seekHelp, 
+.seekHelp,
 .information {
-    color : #83BCD4;
+    color: #83BCD4;
 }
 
 .link {
@@ -26,4 +26,8 @@ a:hover {
 
 #username {
     margin-bottom: 3px;
+}
+
+.toshow {
+    display: none;
 }
