@@ -122,9 +122,11 @@ function submitMessage() {
 
 function renderPosts(posts) {
     let cardTemplate = document.getElementById("messageCardTemplate");
+    orderedPosts = allPosts.docs.sort((a, b) => b.data().timestamp - a.data().timestamp);
 
     for (var i = startIndex; i <= endIndex; i++) {
-        var doc = allPosts.docs[i];
+
+        var doc = orderedPosts[i];
         var name = doc.data().name;       // get value of the "name" key
         var message = doc.data().message;  // get value of the "messages" key
         // var docID = doc.id; USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
