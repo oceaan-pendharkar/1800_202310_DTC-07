@@ -161,8 +161,8 @@ function displayCardsDynamically(posts) {
 displayCardsDynamically("posts");  //input param is the name of the collection
 
 
-var prevButton = document.getElementById("prev-msg-btn");
-var nextButton = document.getElementById("next-msg-btn");
+var prevButton = document.getElementById("prev-btn");
+var nextButton = document.getElementById("next-btn");
 
 
 // Define a function to handle clicks on the prev button
