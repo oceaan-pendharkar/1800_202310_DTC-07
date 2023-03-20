@@ -122,7 +122,7 @@ function submitMessage() {
 
 function renderPosts(posts) {
     let cardTemplate = document.getElementById("messageCardTemplate");
-    orderedPosts = allPosts.docs.sort((a, b) => b.data().timestamp - a.data().timestamp);
+    let orderedPosts = allPosts.docs.sort((a, b) => b.data().timestamp - a.data().timestamp);
 
     for (var i = startIndex; i <= endIndex; i++) {
 
@@ -186,8 +186,8 @@ function handleNextClick() {
 }
 
 // Add event listeners to the prev/next buttons
-prev - msg - btn.addEventListener("click", handlePrevClick);
-next - msg - btn.addEventListener("click", handleNextClick);
+prevButton.addEventListener("click", handlePrevClick);
+nextButton.addEventListener("click", handleNextClick);
 
 
 
