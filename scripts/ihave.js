@@ -11,7 +11,7 @@ $(".close-btn").click(function () {
 
 function generateCheckboxes() {
   const resourcesRef = firebase.firestore().collection('resources');
-  const checkboxesContainer = document.getElementById('my-checkboxes');
+  const checkboxesContainer = document.getElementById('checkboxes');
   
   resourcesRef.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -29,7 +29,7 @@ function generateCheckboxes() {
           
           // Create a label element
           const label = document.createElement('label');
-          label.textContent = key + ': ' + docData[key];
+          label.textContent = key 
           
           // Create a div element to wrap the checkbox and label
           const div = document.createElement('div');
@@ -52,32 +52,35 @@ generateCheckboxes();
 /// To save selected checkboxes to Firestore in user's document
 
 function saveResourceUpdate() {
-  let Flooded = document.querySelector('input[name="flooded"]:checked').value;
-  let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
-
-
-  firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-          var currentUser = db.collection("users").doc(user.uid)
-          var userID = user.uid;
-          //get the document for current user.
-          currentUser.get()
-              .then(userDoc => {
-                  var userEmail = userDoc.data().email;
-                  db.collection("resources").add({
-                      hikeDocID: hikeDocID,
-                      userID: userID,
-                      title: Title,
-                      level: Level,
-                      season: Season,
-                     
-                  }).then(() => {
-                      window.location.href = "thanksresourcesupdate.html"; //new line added
-                  })
-              })
-      } else {
-          console.log("No user is signed in");
-          window.location.href = 'review.html';
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const preferences = [];
+  
+  checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+          preferences.push(checkbox.value);
       }
   });
+  firebase.auth().onAuthStateChanged( user => {
+              // Check if user is signed in:
+              if ( user ) {
+      
+                  //go to the correct user document by referencing to the user uid
+                  currentUser = db.collection( "users" ).doc( user.uid )
+                  return currentUser.update({
+                      preferences: preferences
+                  })
+                  .then(() => {
+                      console.log("Resource update saved successfully!");
+                  })
+                  .catch((error) => {
+                      console.error("Error saving resources: ", error);
+                  });
+      
+              } else {
+                  // No user is signed in.
+                  console.log( "No user is signed in" );
+              }
+          } );
+  
+  
 }
