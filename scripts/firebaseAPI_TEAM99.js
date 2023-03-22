@@ -1,8 +1,9 @@
+
 //----------------------------------------
 //  Your web app's Firebase configuration
 //----------------------------------------
 var firebaseConfig = {
-    apiKey: "AIzaSyBidO_lZNGfC9RJo-S3V9Lb-E3vNknGhP8",
+  apiKey: "AIzaSyBidO_lZNGfC9RJo-S3V9Lb-E3vNknGhP8",
   authDomain: "dtc07-4a4f6.firebaseapp.com",
   projectId: "dtc07-4a4f6",
   storageBucket: "dtc07-4a4f6.appspot.com",
@@ -16,3 +17,4 @@ var firebaseConfig = {
 //--------------------------------------------
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const storage = firebase.storage();

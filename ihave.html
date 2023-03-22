@@ -30,6 +30,7 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <!-------------------------------------------->
   <!-- Other libraries and styles of your own -->
@@ -60,7 +61,7 @@
     </div>
   </div>
 
-  <div id="my-checkboxes"></div>
+  <div id="checkboxes"></div>
 
 
 
@@ -287,10 +288,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <input type="text" id="fname" name="fname"><br><br>
+          <input type="text" id="itemName" name="fname"><br><br>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" onclick="saveResourceInput()">Save changes</button>
           <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
         </div>
       </div>
