@@ -43,12 +43,16 @@ function submitMessage() {
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     })
+                    .then(function(docRef) {
+                        console.log("Document written with ID: ", docRef.id);
+                        window.location.href = "messageboard.html";
+                    })
+                } else {
+                    $("#submit-message-fail").css("display","block").delay(1000).fadeOut(2000);
                 }
-                $("#message").val(""); //clear the message box
 
-                $("#submit-message-success").removeClass("toshow");
+                
 
-                // New comment from Oceaan: We don't need this anymore
                 // // front-end submitted message goes here
                 // //check if the user is posting a info message or a seek help request
                 // if (document.getElementById("info_radio").checked) {
