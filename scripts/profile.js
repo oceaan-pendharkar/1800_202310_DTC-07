@@ -15,6 +15,7 @@ function populateUserInfo() {
                     var userNeighbourhood = userDoc.data().neighbourhood;
                     var userCity = userDoc.data().city;
                     var userPhone = userDoc.data().phone;
+                    let picUrl = userDoc.data().profilePic;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -29,6 +30,13 @@ function populateUserInfo() {
                     if (userPhone != null) {
                         document.getElementById("phoneInput").value = userPhone;
                     }
+                    if (picUrl != null) {
+                        console.log(picUrl);
+                        // use this line if "mypicdiv" is a "div"
+                        $("#pic-area").prepend("<img src='" + picUrl + "'>")
+                    }
+                    else
+                        console.log("picURL is null");
                 })
         } else {
             // No user is signed in.
@@ -142,17 +150,18 @@ function logout() {
 // Input param is the String representing the day of the week, aka, the document name
 function readItems() {
     db.collection("users").doc(currentUser)                                                      //name of the collection and documents should matach excatly with what you have in Firestore
-      .onSnapshot(currentUser => {                                                               //arrow notation
-           console.log("current document data: " + currentUserDoc.data());                          //.data() returns data object
-           document.getElementById("listOfItems").innerHTML = currentUser.data().items;      //using javascript to display the data on the right place
-           
-// //            //Here are other ways to access key-value data fields
-//            $('#listOfItems').text(users.Doc.data().items);         //using jquery object dot notation
-//            //$("#quote-goes-here").text(tuesdayDoc.data()["quote"]);      //using json object indexing
-// 		       //document.querySelector("#quote-goes-here").innerHTML = tuesdayDoc.data().quote;
-//       })
-// }
-readItems();        //calling the function
+        .onSnapshot(currentUser => {                                                               //arrow notation
+            console.log("current document data: " + currentUserDoc.data());                          //.data() returns data object
+            document.getElementById("listOfItems").innerHTML = currentUser.data().items;      //using javascript to display the data on the right place
+
+            // //            //Here are other ways to access key-value data fields
+            //            $('#listOfItems').text(users.Doc.data().items);         //using jquery object dot notation
+            //            //$("#quote-goes-here").text(tuesdayDoc.data()["quote"]);      //using json object indexing
+            // 		       //document.querySelector("#quote-goes-here").innerHTML = tuesdayDoc.data().quote;
+            //       })
+            // }
+            readItems();        //calling the function
 
 
-      })}
+        })
+}
