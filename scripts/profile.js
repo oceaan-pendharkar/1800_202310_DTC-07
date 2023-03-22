@@ -136,15 +136,23 @@ function logout() {
     });
 }
 
+/// get items from database
 
-function getItems() {
+// Function to read the quote of the day from Firestore "quotes" collection
+// Input param is the String representing the day of the week, aka, the document name
+function readItems() {
+    db.collection("users").doc(currentUser)                                                      //name of the collection and documents should matach excatly with what you have in Firestore
+      .onSnapshot(currentUser => {                                                               //arrow notation
+           console.log("current document data: " + currentUserDoc.data());                          //.data() returns data object
+           document.getElementById("listOfItems").innerHTML = currentUser.data().items;      //using javascript to display the data on the right place
+           
+// //            //Here are other ways to access key-value data fields
+//            $('#listOfItems').text(users.Doc.data().items);         //using jquery object dot notation
+//            //$("#quote-goes-here").text(tuesdayDoc.data()["quote"]);      //using json object indexing
+// 		       //document.querySelector("#quote-goes-here").innerHTML = tuesdayDoc.data().quote;
+//       })
+// }
+readItems();        //calling the function
 
-    // To get the selected items into the profile page
 
-
-
-
-
-}
-
-getItems()
+      })}
