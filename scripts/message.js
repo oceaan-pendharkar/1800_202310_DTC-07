@@ -130,10 +130,12 @@ function renderPosts() {
         var name = doc.data().name;       // get value of the "name" key
         var message = doc.data().message;  // get value of the "messages" key
         var docID = doc.id; //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
+        var time = doc.data().timestamp.toDate().toLocaleString();
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update title and text and image
         newcard.querySelector('.card-title').innerHTML = name;
+        newcard.querySelector('.card-time').innerHTML = time;
         newcard.querySelector('.card-text').innerHTML = message;
         newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID; 
         //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
