@@ -1,8 +1,12 @@
+
+
 $(document).ready(function () {
   $(".button-other").click(function () {
     alert(Hello);
   });
 });
+
+
 
 $(".close-btn").click(function () {
   $("#edit-items").modal('hide');
@@ -83,5 +87,44 @@ function saveResourceUpdate() {
               }
           } );
   
+
+  /// allow user to input their unique item
   
+}
+
+
+
+function saveResourceInput() {
+  newItem = document.getElementById('itemName').value;
+
+
+  
+  firebase.auth().onAuthStateChanged( user => {
+              // Check if user is signed in:
+              if ( user ) {
+      
+                  //go to the correct user document by referencing to the user uid
+                  currentUser = db.collection( "users" ).doc( user.uid )
+                  return currentUser.update({
+                      items: firebase.firestore.FieldValue.arrayUnion(newItem)
+                  }, { merge: true })
+                  .then(() => {
+                      console.log("Resource update saved successfully!");
+                      location.replace("thanksresourcesupdate.html")
+                  })
+                  .catch((error) => {
+                      console.error("Error saving resources: ", error);
+                  });
+      
+              } else {
+                  // No user is signed in.
+                  console.log( "No user is signed in" );
+              }
+          } );
+  
+  
+
+
+
+
 }
