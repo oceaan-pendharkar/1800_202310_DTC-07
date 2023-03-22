@@ -53,11 +53,11 @@ generateCheckboxes();
 
 function saveResourceUpdate() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  const preferences = [];
+  const IHaveList = [];
   
   checkboxes.forEach((checkbox) => {
       if (checkbox.checked) {
-          preferences.push(checkbox.value);
+        IHaveList.push(checkbox.value);
       }
   });
   firebase.auth().onAuthStateChanged( user => {
@@ -67,10 +67,11 @@ function saveResourceUpdate() {
                   //go to the correct user document by referencing to the user uid
                   currentUser = db.collection( "users" ).doc( user.uid )
                   return currentUser.update({
-                      preferences: preferences
+                      items: IHaveList
                   })
                   .then(() => {
                       console.log("Resource update saved successfully!");
+                      location.replace("thanksresourcesupdate.html")
                   })
                   .catch((error) => {
                       console.error("Error saving resources: ", error);
