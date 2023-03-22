@@ -65,14 +65,82 @@ function saveUserInfo() {
     document.getElementById('personalInfoFields').disabled = true;
 }
 
+// THIS IS THE FUNCTION FOR PROFILE PIC SAVING BUT IT DOESN'T WORK YET
+// function saveUserInfo() {
+//     firebase.auth().onAuthStateChanged(function (user) {
+//         var storageRef = storage.ref("images/" + user.uid + ".jpg");
 
+//         //Asynch call to put File Object (global variable ImageFile) onto Cloud
+//         storageRef.put(ImageFile)
+//             .then(function () {
+//                 console.log('Uploaded to Cloud Storage.');
 
+//                 //Asynch call to get URL from Cloud
+//                 storageRef.getDownloadURL()
+//                     .then(function (url) { // Get "url" of the uploaded file
+//                         console.log("Got the download URL.");
+//                         //get values from the from
+//                         userName = document.getElementById('nameInput').value;
+//                         userNeighbourhood = document.getElementById('neighbourhoodInput').value;
+//                         userCity = document.getElementById('cityInput').value;
+//                         userPhone = document.getElementById('phoneInput').value;
+
+//                         //Asynch call to save the form fields into Firestore.
+//                         db.collection("users").doc(user.uid).update({
+//                             name: userName,
+//                             neighbourhood: userNeighbourhood,
+//                             city: userCity,
+//                             phone: userPhone,
+//                             profilePic: url // Save the URL into users collection
+//                         })
+//                             .then(function () {
+//                                 console.log('Added Profile Pic URL to Firestore.');
+//                                 console.log('Saved use profile info');
+//                                 document.getElementById('personalInfoFields').disabled = true;
+//                             })
+//                     })
+//             })
+//     })
+// }
+
+var ImageFile;      //global variable to store the File Object reference
+
+function chooseFileListener() {
+    const fileInput = document.getElementById("profile-pic-input");   // pointer #1
+    const image = document.getElementById("profile-pic-goes-here");   // pointer #2
+
+    //attach listener to input file
+    //when this file changes, do something
+    fileInput.addEventListener('change', function (e) {
+
+        //the change event returns a file "e.target.files[0]"
+        ImageFile = e.target.files[0];
+        var blob = URL.createObjectURL(ImageFile);
+
+        //change the DOM img element source to point to this file
+        image.src = blob;    //assign the "src" property of the "img" tag
+    })
+}
+chooseFileListener();
+
+//logout function
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        console.log("logging out user");
+    }).catch((error) => {
+        // An error happened.
+    });
+}
+
+const logoutButton = document.getElementById('logout-button');
+logoutButton.addEventListener('click', logout);
 
 
 
 function getItems() {
 
-// To get the selected items into the profile page
+    // To get the selected items into the profile page
 
 
 

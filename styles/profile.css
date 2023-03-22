@@ -34,3 +34,43 @@ h1 {
 #editItems {
     margin-bottom: 60px;
 }
+
+#pic-area {
+    display: flex;
+    flex-direction: column;
+}
+
+#pic-area>img {
+    width: 40%;
+    height: 40%;
+    align-self: center;
+    padding: 20px;
+}
+
+#pic-area>input {
+    align-self: center;
+    margin-top: 20px;
+}
+
+#logout-button {
+    margin-bottom: 60px;
+    margin-right: 0px;
+    margin-left: 85%;
+}
+
+@media screen and (min-width: 768px) {
+    #personalInfoFields {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .form-group {
+        width: 50%;
+    }
+
+    #pic-area>img {
+        width: 100%;
+        height: 100%;
+    }
+
+}
