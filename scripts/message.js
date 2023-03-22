@@ -135,13 +135,15 @@ function renderPosts() {
         //update title and text and image
         newcard.querySelector('.card-title').innerHTML = name;
         newcard.querySelector('.card-text').innerHTML = message;
-        newcard.querySelector('.profile-link').href = "messageboard.html?docID=" + docID; //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
-
+        newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID; 
+        //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
+        // newcard.querySelector('.profile-link').onclick = () => publishedUserInfo(docID);
         //attach to gallery,//
         document.getElementById("previous-messages").appendChild(newcard);
 
     }
 }
+
 
 
 // for the previous messages //

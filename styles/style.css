@@ -34,6 +34,13 @@
 
 /* font */
 
+
+/* General use */
+.subheading {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
 /* Bootstrap item redefine */
 .btn-primary,
 .form-check-input:checked {

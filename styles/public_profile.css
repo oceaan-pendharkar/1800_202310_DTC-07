@@ -1,0 +1,11 @@
+.center {
+    text-align: center;
+}
+
+td {
+    border-style: hidden;
+}
+
+.table-sm>:not(caption)>*>* {
+    padding: 0.9rem 0.5rem;
+}

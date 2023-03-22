@@ -26,7 +26,7 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
-                    if (userCity != null) {
+                    if (userPhone != null) {
                         document.getElementById("phoneInput").value = userPhone;
                     }
                 })
