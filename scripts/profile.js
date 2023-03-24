@@ -131,37 +131,29 @@ function chooseFileListener() {
 }
 chooseFileListener();
 
-const logoutButton = document.getElementById('logout-button');
-logoutButton.addEventListener('click', logout);
 
-//logout function
-function logout() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        console.log("logging out user");
-    }).catch((error) => {
-        // An error happened.
-    });
-}
+/// User items
 
-/// get items from database
+function populateUserItems() {
 
-// Function to read the quote of the day from Firestore "quotes" collection
-// Input param is the String representing the day of the week, aka, the document name
-function readItems() {
-    db.collection("users").doc(currentUser)                                                      //name of the collection and documents should matach excatly with what you have in Firestore
-        .onSnapshot(currentUser => {                                                               //arrow notation
-            console.log("current document data: " + currentUserDoc.data());                          //.data() returns data object
-            document.getElementById("listOfItems").innerHTML = currentUser.data().items;      //using javascript to display the data on the right place
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
 
-            // //            //Here are other ways to access key-value data fields
-            //            $('#listOfItems').text(users.Doc.data().items);         //using jquery object dot notation
-            //            //$("#quote-goes-here").text(tuesdayDoc.data()["quote"]);      //using json object indexing
-            // 		       //document.querySelector("#quote-goes-here").innerHTML = tuesdayDoc.data().quote;
-            //       })
-            // }
-            readItems();        //calling the function
+//go to the correct user document by referencing to the user uid
+currentUser = db.collection("users").doc(user.uid)
 
+//get the document for current user.
+currentUser.get()
+    .then(userDoc => {
+        //get the data fields of the user
+        var userItems = userDoc.data().items;
 
-        })
-}
+    if (userItems != null) {
+        document.getElementById("listOfItems").value = userItems;
+    }
+})
+        }
+    })}
+       
+populateUserItems()
