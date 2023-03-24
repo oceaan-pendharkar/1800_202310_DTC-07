@@ -1,4 +1,4 @@
-const queryString = window.location.search;  // passing post ID from messageboard to profile page thru the URL
+const queryString = window.location.search;  // passing post ID from messageboard to public profile page thru the URL
 console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);  // create a new URLSearchParams object
