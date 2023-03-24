@@ -13,6 +13,8 @@ $(".close-btn").click(function () {
 });
 
 
+/// make checkboxes from database
+
 function generateCheckboxes() {
   const resourcesRef = firebase.firestore().collection('resources');
   const checkboxesContainer = document.getElementById('checkboxes');
