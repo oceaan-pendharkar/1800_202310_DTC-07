@@ -41,6 +41,7 @@
     color: var(--text);
 }
 
+
 /* for login overwrite */
 .mdl-button--raised.mdl-button--colored {
     background: #5C8A94;
@@ -51,9 +52,23 @@
     color: #81868d;
 }
 
+.box {
+    padding-top : 10rem; 
+}
+
 .firebaseui-card-footer p {
     display:none
 }
+
+.firebaseui-title {
+    font-size: 23px;
+    text-align: center;
+}
+
+.firebaseui-card-content {
+    padding-top: 20px;
+}
+
 
 .firebaseui-inline-list-item {
     display: none;
