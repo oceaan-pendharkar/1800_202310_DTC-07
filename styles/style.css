@@ -41,6 +41,25 @@
     color: var(--text);
 }
 
+/* for login overwrite */
+.mdl-button--raised.mdl-button--colored {
+    background: #5C8A94;
+    color: rgb(255,255,255);
+}
+
+.mdl-button--primary.mdl-button--primary {
+    color: #81868d;
+}
+
+.firebaseui-card-footer p {
+    display:none
+}
+
+.firebaseui-inline-list-item {
+    display: none;
+}
+
+
 /* Bootstrap item redefine */
 .btn-primary,
 .form-check-input:checked {
