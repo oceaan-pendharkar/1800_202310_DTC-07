@@ -45,6 +45,8 @@ function generateCheckboxes() {
           
           // Add the div element to the checkboxes container
           checkboxesContainer.appendChild(div);
+
+
         }
       });
     });
@@ -88,11 +90,19 @@ function saveResourceUpdate() {
                   console.log( "No user is signed in" );
               }
           } );
-  
+
 
   /// allow user to input their unique item
   
 }
+
+currentUser.get().then(userDoc => {
+  //get the user name
+  var items = userDoc.data().items;
+  if (items.includes(docID)) {
+     document.getElementById('save-' + docID).innerText = 'checked';
+  }
+})
 
 
 
@@ -128,4 +138,5 @@ function saveResourceInput() {
 
 
 }
+
 
