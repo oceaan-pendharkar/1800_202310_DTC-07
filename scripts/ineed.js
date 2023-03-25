@@ -29,3 +29,10 @@ function populateDropdown() {
   
   // Call the populateDropdown function to start populating the dropdown
   populateDropdown();
+
+  function saveItemDocumentIDAndRedirect(){
+  let params = new URL(window.location.href) //get the url from the search bar
+  let ID = $dropdown;
+  localStorage.setItem('itemDocID', ID);
+  window.location.href = 'profilelistwithresource.html';
+}
