@@ -43,75 +43,13 @@ function submitMessage() {
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     })
-                    .then(function(docRef) {
-                        console.log("Document written with ID: ", docRef.id);
-                        window.location.href = "messageboard.html";
-                    })
+                        .then(function (docRef) {
+                            console.log("Document written with ID: ", docRef.id);
+                            window.location.href = "messageboard.html";
+                        })
                 } else {
-                    $("#submit-message-fail").css("display","block").delay(1000).fadeOut(2000);
+                    $("#submit-message-fail").css("display", "block").delay(1000).fadeOut(2000);
                 }
-
-                
-
-                // // front-end submitted message goes here
-                // //check if the user is posting a info message or a seek help request
-                // if (document.getElementById("info_radio").checked) {
-                //     if (message != "") {
-                //         $("#messageposts").prepend(
-                //             `<div class="message container">
-                //                 <div class="row">
-                //                     <div class="col-2">
-                //                             <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
-                //                     </div>
-                //                     <div class="col-10">
-                //                         <div class="row">
-                //                             <div class="col-12">
-                //                                 <h5  id="username">${userName}</h5>
-                //                                 <p class="time">${time}</p>
-                //                             </div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-12">
-                //                                 <p>${message}</p>
-                //                                 <a class="link">Contact User</a>
-                //                             </div>
-                //                         </div>
-                //                     </div>
-                //                 </div>        
-                //             </div>`
-                //         )} else {
-                //             alert("Please enter a message");
-                //         };
-                // } else if (document.getElementById("seekHelp_radio").checked) {
-                //     if (message != "") {
-                //         $("#messageposts").prepend(
-                //             `<div class="message container">
-                //                 <div class="row">
-                //                     <div class="col-2">
-                //                             <img width="100%" height="auto" src="./images/userplaceholder.jpeg">
-                //                     </div>
-                //                     <div class="col-10">
-                //                             <div class="row">
-                //                             <div class="col-12">
-                //                                 <h5  id="username"><span><img height="30" src="./images/sos.png" alt=""></span> ${userName}</h5>
-                //                                 <p class="time">${time}</p>
-                //                             </div>
-                //                         </div>
-                //                         <div class="row">
-                //                             <div class="col-12">
-                //                                 <p>${message}</p>
-                //                                 <a class="link">Contact User</a>
-                //                             </div>
-                //                         </div>
-                //                     </div>
-                //                 </div>        
-                //             </div>`
-                //         )} else {
-                //             alert("Please enter a message");
-                //         };
-                // } else if (message == "") {
-                //     alert("Please select the category and enter a message");
-                // };
 
                 console.log(userName, message);
                 // above is the front-end submitted message template
@@ -126,10 +64,21 @@ function submitMessage() {
 
 function renderPosts() {
     let cardTemplate = document.getElementById("messageCardTemplate");
+    if (startIndex == 0) {
+        prevButton.disabled = true;
+    }
+    else {
+        prevButton.disabled = false;
+    }
+    if (startIndex != allPosts.docs.length - cardsPerPage) {
+        nextButton.disabled = false;
+    }
     let orderedPosts = allPosts.docs.sort((a, b) => b.data().timestamp - a.data().timestamp);
+    if (startIndex == orderedPosts.length - cardsPerPage - 1) {
+        nextButton.disabled = true;
+    }
 
-    for (var i = startIndex; i <= endIndex; i++) {
-
+    for (var i = startIndex; i <= Math.min(endIndex, allPosts.docs.length - 1); i++) {
         var doc = orderedPosts[i];
         var name = doc.data().name;       // get value of the "name" key
         var message = doc.data().message;  // get value of the "messages" key
@@ -141,7 +90,7 @@ function renderPosts() {
         newcard.querySelector('.card-title').innerHTML = name;
         newcard.querySelector('.card-time').innerHTML = time;
         newcard.querySelector('.card-text').innerHTML = message;
-        newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID; 
+        newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID;
         //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
         // newcard.querySelector('.profile-link').onclick = () => publishedUserInfo(docID);
         //attach to gallery,//
@@ -153,7 +102,7 @@ function renderPosts() {
 
 
 // for the previous messages //
-const cardsPerPage = 3;
+const cardsPerPage = 5;
 var startIndex = 0;
 var endIndex = cardsPerPage - 1;
 var allPosts;
@@ -192,6 +141,7 @@ function handleNextClick() {
         renderPosts();
     }
 }
+
 
 // Add event listeners to the prev/next buttons
 prevButton.addEventListener("click", handlePrevClick);
