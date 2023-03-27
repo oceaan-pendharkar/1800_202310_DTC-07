@@ -53,27 +53,6 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
-// function saveUserInfo() {
-
-//     //get the values from the form fields
-//     var name = document.getElementById("nameInput").value;
-//     var neighbourhood = document.getElementById("neighbourhoodInput").value;
-//     var city = document.getElementById("cityInput").value;
-//     var phone = document.getElementById("phoneInput").value;
-
-//     //update the user document with the new data
-//     currentUser.update({
-//         name: name,
-//         neighbourhood: neighbourhood,
-//         city: city,
-//         phone: phone
-//     })
-
-//     //Disable the form fields
-//     document.getElementById('personalInfoFields').disabled = true;
-// }
-
-// THIS IS THE FUNCTION FOR PROFILE PIC SAVING BUT IT DOESN'T WORK YET
 function saveUserInfo() {
     firebase.auth().onAuthStateChanged(function (user) {
         var storageRef = storage.ref("images/" + user.uid + ".jpg");
