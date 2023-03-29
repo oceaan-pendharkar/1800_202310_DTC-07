@@ -5,6 +5,7 @@
     --darkerTheme: #5C8A94;
     --contrastorange: #DE905c;
     --text: #81868d;
+    --backgroundWhite: #FFFFFF;
 }
 
 /* box shadow class */
@@ -32,6 +33,10 @@
     color: var(--text);
 }
 
+.background {
+    background-color: var(--backgroundWhite);
+}
+
 /* font */
 
 
@@ -41,6 +46,9 @@
     color: var(--text);
 }
 
+.nav {
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,.1)
+}
 
 /* for login overwrite */
 .mdl-button--raised.mdl-button--colored {
