@@ -119,21 +119,27 @@ function populateUserItems() {
         // Check if user is signed in:
         if (user) {
 
-//go to the correct user document by referencing to the user uid
-currentUser = db.collection("users").doc(user.uid)
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
 
-///get the items for current user.
+            ///get the items for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    var userItems = userDoc.data().items;
 
-currentUser.get()
-    .then(userDoc => {
-        //get the data fields of the user
-        var userItems = userDoc.data().items;
-
-    if (userItems != null) {
-        document.getElementById("listOfItems").value = userItems;
-    }
-})
+                    if (userItems != null) {
+                        for (var i = 0; i < userItems.length; i++) {
+                            var item = userItems[i];
+                            var itemDiv = document.createElement("div");
+                            itemDiv.className = "item";
+                            itemDiv.innerHTML = item;
+                            document.getElementById("listOfItems").appendChild(itemDiv);
+                        
+                    }
+                })
         }
-    })}
-     
-    populateUserItems()
+    })
+}
+
+populateUserItems()
