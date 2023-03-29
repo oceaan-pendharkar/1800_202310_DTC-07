@@ -1,0 +1,10 @@
+#my-dropdown {
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-container {
+    padding: 8px 16px;
+    display: block;
+    padding: 20px;
+}

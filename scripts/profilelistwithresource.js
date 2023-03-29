@@ -1,43 +1,53 @@
-var itemDocID = localStorage.getItem("itemDocID");    //visible to all functions on this page
+
 
 /// find the item selected that was saved in local storage
+var itemDocID = localStorage.getItem("itemDocID");    //visible to all functions on this page
 
-function getItemName(id) {
-    db.collection("resources")
-      .doc(id)
-      .get()
-      .then((thisItem) => {
-        var itemName = thisItem.data().name;
-        document.getElementById("ItemName").innerHTML = itemName;
-          });
-}
+// getItemName(itemDocID);
 
-/// populate list of profile names that have this item
+//replace search item with item name
+$('#search-item').html(itemDocID);
 
-getItemName(itemDocID);
+db.collection("users").where("items", "array-contains", itemDocID).get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const userProfile = doc.data();
+            const userName = userProfile.name;
+            const userProfilePicture = userProfile.profilePic;
 
-function populateProfiles() {
-    let profileCardTemplate = document.getElementById("profileCardTemplate");
-    let profileCardGroup = document.getElementById("profileCardGroup");
+            const profileCard = document.createElement("div");
+            profileCard.className = "card";
+            profileCard.id = "profileCardTemplate";
 
-    let params = new URL(window.location.href) //get the url from the searbar
-    let itemID = params.searchParams.get("docID")
-    
-    // doublecheck: is your collection called "Reviews" or "reviews"?
-    db.collection("resources").where( "itemDocID", "==", itemID).get()
-        .then(allItems => {
-            reviews=allItems.docs;
-            console.log(items);
-            items.forEach(doc => {
-                var name = doc.data().name; //gets the name field
-                var profilePicture = doc.data().level; //gets the unique ID field
-                console.log(time)
+            const profilePic = document.createElement("img");
+            profilePic.className = "card-img-top";
+            profilePic.src = userProfilePicture;
+            profilePic.alt = "Profile Picture";
+            profileCard.appendChild(profilePic);
 
-                let profileCard = profileCardTemplate.content.cloneNode(true);
-                reviewCard.querySelector('.name').innerHTML = profilePicture;     //equiv getElementByClassName
-                reviewCard.querySelector('.profilePicture').innerHTML = profilePicture;     //equiv getElementByClassName
-                itemCardGroup.appendChild(itemCard);
-            })
-        })
-}
-populateProfiles();
+            const profileCardBody = document.createElement("div");
+            profileCardBody.className = "card-body bg-light text-dark";
+            profileCard.appendChild(profileCardBody);
+
+            const profileCardTitle = document.createElement("h5");
+            profileCardTitle.className = "name card-title";
+            profileCardTitle.innerHTML = userName;
+            profileCardBody.appendChild(profileCardTitle);
+
+            const profileCardText = document.createElement("p");
+            profileCardText.className = "card-text";
+            profileCardText.innerHTML = `I have ${itemDocID}!`;
+            profileCardBody.appendChild(profileCardText);
+
+            const profileCardLink = document.createElement("a");
+            profileCardLink.className = "btn btn-primary";
+            profileCardLink.href = "public_profile.html?docID=" + doc.id;
+            profileCardLink.innerHTML = "View Profile";
+            profileCardBody.appendChild(profileCardLink);
+
+            document.getElementById("profileCardGroup").appendChild(profileCard);
+
+        });
+    })
+
+// save username for button clicked
