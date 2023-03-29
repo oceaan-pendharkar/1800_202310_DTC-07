@@ -135,7 +135,8 @@ function populateUserItems() {
                             itemDiv.className = "item";
                             itemDiv.innerHTML = item;
                             document.getElementById("listOfItems").appendChild(itemDiv);
-                        
+
+                        }
                     }
                 })
         }
