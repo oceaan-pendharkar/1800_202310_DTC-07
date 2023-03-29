@@ -43,10 +43,8 @@ function generateCheckboxes() {
           div.appendChild(checkbox);
           div.appendChild(label);
 
-
           // Add the div element to the checkboxes container
           checkboxesContainer.appendChild(div);
-
 
           firebase.auth().onAuthStateChanged(user => {
             // Check if user is signed in:
@@ -76,7 +74,9 @@ function generateCheckboxes() {
 
 
 // Call the generateCheckboxes function
+appendOtherItems();
 generateCheckboxes();
+
 
 
 /// To save selected checkboxes to Firestore in user's document
@@ -153,4 +153,77 @@ function saveResourceInput() {
 
 }
 
+function appendOtherItems() {
+  // get user's list of items
+  const checkboxesContainer = document.getElementById('checkboxes');
+  const resourcesRef = ['Backpack',
+    'Batteries',
+    'Blanket',
+    'Boxes',
+    'Bungee cords',
+    'Can opener',
+    'Duct tape',
+    'Electrolytes',
+    'Face masks',
+    'Flashlight',
+    'Food(general)',
+    'Food(gluten free)',
+    'Food(halal)',
+    'Food(vegetarian / vegan)',
+    'Gloves(medical)',
+    'Gloves(warm)',
+    'Heater',
+    'Portable stove',
+    'Power pack',
+    'Rope',
+    'Shovel(general)',
+    'Shovel(snow)',
+    'Soap (dish)',
+    'Soap (hand)',
+    'Toilet Paper',
+    'Water',
+    'Wifi hotspot',
+    'Women\'s hygiene products '];
 
+  firebase.auth().onAuthStateChanged(user => {
+    // Check if user is signed in:
+    if (user) {
+      //go to the correct user document by referencing to the user uid
+      currentUser = db.collection("users").doc(user.uid)
+      currentUser.get().then(userDoc => {
+        //get the user name
+        var items = userDoc.data().items;
+        if (items != null) {
+          for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var checkbox = document.getElementById(item);
+
+            if (resourcesRef.includes(item) == false) {
+              var checkbox = document.createElement('input');
+              checkbox.type = 'checkbox';
+              checkbox.name = item;
+              checkbox.id = item;
+              checkbox.value = item;
+
+              // Create a label element
+              const label = document.createElement('label');
+              label.textContent = item
+
+              // Create a div element to wrap the checkbox and label
+              const div = document.createElement('div');
+              div.style.display = 'block';
+              div.appendChild(checkbox);
+              div.appendChild(label);
+
+              checkboxesContainer.appendChild(div);
+            }
+
+
+            checkbox.checked = true;
+          }
+        }
+      })
+    }
+  })
+
+}
