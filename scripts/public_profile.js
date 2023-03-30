@@ -18,7 +18,7 @@ function publishedUserInfo(id) {
             var userNeighbourhood = userDoc.data().neighbourhood;
             var userCity = userDoc.data().city;
             var userPhone = userDoc.data().phone;
-            let picUrl = userDoc.data().profilePic;
+            var picUrl = userDoc.data().profilePic;
 
             // if the data fields are not empty, then write them in to the form.
             if (userName != null) {
@@ -58,7 +58,7 @@ function populateUserInfoFromSearchForItems() {
                     var userNeighbourhood = userDoc.data().neighbourhood;
                     var userCity = userDoc.data().city;
                     var userPhone = userDoc.data().phone;
-                    var profilePic = userDoc.data().profilePic;
+                    var picUrl = userDoc.data().profilePic;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
