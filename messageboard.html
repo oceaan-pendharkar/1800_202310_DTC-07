@@ -34,6 +34,7 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/messageboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
@@ -111,15 +112,22 @@
     <!-- Templates for general use, not displayed -->
     <template id="messageCardTemplate">
         <div class="card py-2 mx-2">
-            <img class="card-image card-img-top" src=" ..." alt="..." />
             <div class="card-body">
-                <h5 class="card-title">Name</h5>
-                <p class="card-time subheading">time</p>
+                <div class="row">
+                    <div class="col" style="padding-right: 1px;">
+                        <img class="card-image card-img-top rounded-circle" src=" ..." alt="..." />
+                    </div>
+                    <div class="col-9 pt-1">
+                        <h5 class="card-title">Name</h5>
+                        <p class="card-time subheading">time</p>
+                    </div>
+                </div>
                 <br />
                 <p class="card-text">
                     lom ipsum dolor sit amet consectetur adipisicing elit. Suscipit illo repellendus.
                 </p>
                 <a class="btn btn-primary profile-link" href="#"> Contact User </a>
+                <i class="material-icons" class="delete-icon">delete</i>
                 <!-- <a class="btn btn-primary card-href">Read more ...</a> -->
             </div>
         </div>

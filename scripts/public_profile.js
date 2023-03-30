@@ -8,16 +8,17 @@ console.log(postID);
 function publishedUserInfo(id) {
     console.log(id);
     var thisPost = db.collection("posts").doc(id);
-    var userID;
 
-    thisPost.get().then(doc => {
-        userID = doc.data().uid;
+    thisPost.get().then(postdoc => {
+        var userID = postdoc.data().uid
+        console.log(userID)
 
         db.collection("users").doc(userID).get().then(userDoc => {
             var userName = userDoc.data().name;
             var userNeighbourhood = userDoc.data().neighbourhood;
             var userCity = userDoc.data().city;
             var userPhone = userDoc.data().phone;
+            var picUrl = userDoc.data().profilePic;
 
             // if the data fields are not empty, then write them in to the form.
             if (userName != null) {
@@ -32,13 +33,58 @@ function publishedUserInfo(id) {
             if (userPhone != null) {
                 document.getElementById("phonePublic").innerText = userPhone;
             }
+            if (profilePic != null) {
+                // console.log(picUrl);
+                document.getElementById("profilePic").src = picUrl;
+            }
         })
-        
+
     })
 
 }
 
 publishedUserInfo(postID);
+
+function populateUserInfoFromSearchForItems() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(postID)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    var userName = userDoc.data().name;
+                    var userNeighbourhood = userDoc.data().neighbourhood;
+                    var userCity = userDoc.data().city;
+                    var userPhone = userDoc.data().phone;
+                    var picUrl = userDoc.data().profilePic;
+
+                    //if the data fields are not empty, then write them in to the form.
+                    if (userName != null) {
+                        document.getElementById("userName").innerText = userName;
+                    }
+                    if (userNeighbourhood != null) {
+                        document.getElementById("neighbourhoodPublic").innerText = userNeighbourhood;
+                    }
+                    if (userCity != null) {
+                        document.getElementById("userCity").innerText = userCity;
+                    }
+                    if (userPhone != null) {
+                        document.getElementById("phonePublic").innerText = userPhone;
+                    }
+                    if (profilePic != null) {
+                        // console.log(picUrl);
+                        document.getElementById("profilePic").src = picUrl;
+                    }
+                })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+        }
+    });
+}
+populateUserInfoFromSearchForItems();
 
 
 

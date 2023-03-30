@@ -31,3 +31,12 @@ a:hover {
 .toshow {
     display: none;
 }
+
+.material-icons {
+    float: right;
+    margin-top: 12px;
+    font-size: 28px !important;
+    color: #b6b6b6;
+
+    
+}

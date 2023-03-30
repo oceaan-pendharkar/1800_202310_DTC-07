@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Message Board</title>
+    <title>Search Results</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -46,39 +46,39 @@
     <!-- nav bar by Grace -->
     <nav id="navbarPlaceholder"></nav>
 
-    
+
     <!-- main content -->
 
     <div class="container mt-5 pt-5">
-        <h2> Profile with <span> details </span></h2>
+        <h2> Neighbours with <span id="search-item"> details </span></h2>
         <div id="details-go-here"></div>
         <!-- Here is container for cards  -->
         <div class="container">
             <div id="profileCardGroup" class="row row-cols-auto">
             </div>
         </div>
-</div>
-
-<div>
-    <!-- This is the template for the card -->
-
-<template id="profileCardTemplate">
-    <div class="card bg-secondary">
-        <img class="card-img-top">
-        <div class="card-body bg-light">
-            <h5 class="name">placeholder</h5>
-            <p class="profilePicture">placeholder</p>
-            <br>
-            <p class="description">This card has supporting text below as a natural lead-in to additional content.
-            </p>
-        </div>
     </div>
-</template>
-</div>
+
+    <!-- template -->
+    <div>
+        <template id="profileCardTemplate">
+            <div class="card bg-secondary">
+                <img class="rounded-circle card-img-top">
+                <div class="card-body bg-light">
+                    <h5 class="name">placeholder</h5>
+                    <p class="profilePicture">placeholder</p>
+                    <br>
+                    <p class="description">This card has supporting text below as a natural lead-in to additional
+                        content.
+                    </p>
+                </div>
+            </div>
+        </template>
+    </div>
 
 
 
-    
+
     <!-- footer by Grace -->
     <nav id="footerPlaceholder"></nav>
 

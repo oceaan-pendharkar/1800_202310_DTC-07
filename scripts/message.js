@@ -34,10 +34,12 @@ function submitMessage() {
                 var message = document.getElementById("message").value;
                 console.log(message);
                 var time = new Date().toLocaleString();
+                var picUrl = messageDoc.data().profilePic;
 
                 //push message to firestore
                 if (message != "") {
                     postsRef.add({
+                        profilePic: picUrl,
                         name: userName,
                         uid: user.uid,
                         message: message,
@@ -62,6 +64,7 @@ function submitMessage() {
 
 }
 
+
 function renderPosts() {
     let cardTemplate = document.getElementById("messageCardTemplate");
     if (startIndex == 0) {
@@ -83,21 +86,89 @@ function renderPosts() {
         var name = doc.data().name;       // get value of the "name" key
         var message = doc.data().message;  // get value of the "messages" key
         var docID = doc.id; //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
+        var picUrl = doc.data().profilePic;
         var time = doc.data().timestamp.toDate().toLocaleString();
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update title and text and image
+        newcard.querySelector('.card-image').src = picUrl;
         newcard.querySelector('.card-title').innerHTML = name;
         newcard.querySelector('.card-time').innerHTML = time;
         newcard.querySelector('.card-text').innerHTML = message;
         newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID;
+        newcard.querySelector('i').id = docID;
+        // console.log("in populating", docID);
+        // newcard.querySelector('i').onclick = () => deletePost(docID);
         //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
         // newcard.querySelector('.profile-link').onclick = () => publishedUserInfo(docID);
         //attach to gallery,//
         document.getElementById("previous-messages").appendChild(newcard);
-
+        showDeleteButton(docID)
     }
+
 }
+
+//check if the the uid under postID is the same as the current user
+//if it is the same, then show the delete button
+//if it is not the same, then hide the delete button
+
+function showDeleteButton(docID) {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            // console.log(user.uid);
+            var postRef = db.collection("posts").doc(docID);
+            postRef.get().then(postDoc => {
+                var postUID = postDoc.data().uid;
+                if (postUID == user.uid) {
+                    // console.log("I am the post owner! show delete button");
+                    console.log("postID is - " + docID);
+                    var delIcon = document.getElementById(docID);
+                    delIcon.style.display = "block";
+                    delIcon.onclick = () => deletePost(docID);
+                } else {
+                    console.log("hide delete button");
+                    var delIcon = document.getElementById(docID);
+                    delIcon.style.display = "none";
+                }
+            })
+        }
+    })
+}
+
+
+function deletePost(docID) {
+    console.log("in delete", docID);
+    var result = confirm("Want to delete?");
+    if (result) {
+        console.log(docID);
+        //Logic to delete the item
+        db.collection("posts").doc(docID)
+            .delete()
+            .then(() => {
+                window.location.href = "messageboard.html";
+                console.log("1. Document deleted from Posts collection");
+                // deleteFromMyPosts(docID);
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+    }
+    console.log(docID + " deleted ");
+}
+
+
+// function deleteFromMyPosts(postid) {
+//     firebase.auth().onAuthStateChanged(user => {
+//         db.collection("users").doc(user.uid).update({
+//                 myposts: firebase.firestore.FieldValue.arrayRemove(postid)
+//             })
+//             .then(() => {
+//                 console.log("2. post deleted from user doc");
+//                 deleteFromStorage(postid);
+//             })
+//     })
+// }
+
+
 
 
 
