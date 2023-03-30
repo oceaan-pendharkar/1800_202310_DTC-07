@@ -8,9 +8,10 @@ console.log(postID);
 function publishedUserInfo(id) {
     console.log(id);
     var thisPost = db.collection("posts").doc(id);
-    var userID;
 
     thisPost.get().then(doc => {
+        var userID = doc.data().uid
+        console.log(userID)
 
         db.collection("users").doc(userID).get().then(userDoc => {
             var userName = userDoc.data().name;
@@ -30,6 +31,10 @@ function publishedUserInfo(id) {
             }
             if (userPhone != null) {
                 document.getElementById("phonePublic").innerText = userPhone;
+            }
+            if (profilePic != null) {
+                console.log(profilePic);
+                document.getElementById("profilePic").src = profilePic;
             }
         })
 
