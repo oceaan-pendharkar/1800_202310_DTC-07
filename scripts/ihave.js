@@ -71,6 +71,14 @@ function saveResourceUpdate() {
   firebase.auth().onAuthStateChanged( user => {
               // Check if user is signed in:
               if ( user ) {
+
+                currentUser = db.collection( "users" ).doc( user.uid )
+                currentUser.get().then((doc) => {
+                  if (doc.data().then((doc) => {
+                    console.log(docData[key])
+                    checkbox.checked = true;
+                  }))
+                
       
                   //go to the correct user document by referencing to the user uid
                   currentUser = db.collection( "users" ).doc( user.uid )
@@ -96,13 +104,7 @@ function saveResourceUpdate() {
   
 }
 
-currentUser.get().then(userDoc => {
-  //get the user name
-  var items = userDoc.data().items;
-  if (items.includes(docID)) {
-     document.getElementById('save-' + docID).innerText = 'checked';
-  }
-})
+
 
 
 
