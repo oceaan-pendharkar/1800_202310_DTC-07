@@ -97,7 +97,7 @@ function renderPosts() {
         newcard.querySelector('.card-text').innerHTML = message;
         newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID;
         newcard.querySelector('i').id = docID;
-        newcard.querySelector('.material-icons').onclick = () => deletePost(doc.id);
+        newcard.querySelector('i').onclick = () => deletePost(docID);
         //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
         // newcard.querySelector('.profile-link').onclick = () => publishedUserInfo(docID);
         //attach to gallery,//
@@ -120,53 +120,55 @@ function renderPosts() {
 
 
 function showDeleteButton(list) {
-    // console.log(window.delList);
+    
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             console.log(user.uid);
-            console.log(window.delList);
+            
             // loop through the list of delete icons
             for (var i = 0; i < window.delList.length; i++) {
                 // console.log(window.delList[i].id);
                 //get the postID of the delete icon
-                var postID = window.delList[i].id;
+                var postID = window.delList[i];
                 console.log(postID);
                 //get the post document
-                var postRef = db.collection("posts").doc(postID);
-                //get the uid of the post  
-                postRef.get().then(postDoc => {
+                // var postRef = db.collection("posts").doc(postID);
+                // //get the uid of the post  
+                // postRef.get().then(postDoc => {
                     
-                    var postUID = postDoc.data().uid;
-                    console.log(postUID);
-                    //if the uid of the post is the same as the current user, then show the delete button
-                    if (postUID == user.uid) {
-                        console.log("show delete button");
-                        console.log(postID);
-                        console.log( document.getElementById(postID));
-                        document.getElementById(postID).style.display = "block";
+                //     var postUID = postDoc.data().uid;
+                //     console.log(postUID);
+                //     //if the uid of the post is the same as the current user, then show the delete button
+                //     if (postUID == user.uid) {
+                //         console.log("show delete button");
+                //         console.log(postID);
+                //         console.log( document.getElementById(postID));
+                //         document.getElementById(postID).style.display = "block";
                         
-                    }
-                    //if the uid of the post is not the same as the current user, then hide the delete button
-                    else {
+                //     }
+                //     //if the uid of the post is not the same as the current user, then hide the delete button
+                //     else {
                         
-                        console.log("hide delete button");
-                        console.log( document.getElementById(postID));
-                        document.getElementById(postID).style.display = "none";
+                //         console.log("hide delete button");
+                //         console.log( document.getElementById(postID));
+                //         document.getElementById(postID).style.display = "none";
                         
-                    }
-                })
+                //     }
+                // })
             }
         }
     })
 }
 
-showDeleteButton()
+// showDeleteButton()
 
 
 
 function deletePost(postid) {
+    console.log(postid);
     var result = confirm("Want to delete?");
     if (result) {
+        console.log(postid);
         //Logic to delete the item
         db.collection("posts").doc(postid)
             .delete()
@@ -178,6 +180,7 @@ function deletePost(postid) {
                 console.error("Error removing document: ", error);
             });
     }
+    // window.location.href = "messageboard.html";
 }
 
 
