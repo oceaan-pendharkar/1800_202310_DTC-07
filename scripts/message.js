@@ -97,7 +97,8 @@ function renderPosts() {
         newcard.querySelector('.card-text').innerHTML = message;
         newcard.querySelector('.profile-link').href = "public_profile.html?docID=" + docID;
         newcard.querySelector('i').id = docID;
-        newcard.querySelector('i').onclick = () => deletePost(docID);
+        // console.log("in populating", docID);
+        // newcard.querySelector('i').onclick = () => deletePost(docID);
         //USE THIS TO LINK BACK TO PROFILE OF PERSON WHO POSTED MESSAGE
         // newcard.querySelector('.profile-link').onclick = () => publishedUserInfo(docID);
         //attach to gallery,//
@@ -105,28 +106,26 @@ function renderPosts() {
         showDeleteButton(docID)
     }
 
-    //PostID is hidden in the delete icon not : working yet
-    //but the right unique post ID is in the delete icon
-    // let elements = document.querySelectorAll('i')
-    // window.delList = elements;
-    // console.log(window.delList);
-
 }
+
+//check if the the uid under postID is the same as the current user
+//if it is the same, then show the delete button
+//if it is not the same, then hide the delete button
 
 function showDeleteButton(docID) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            console.log(user.uid);
+            // console.log(user.uid);
             var postRef = db.collection("posts").doc(docID);
             postRef.get().then(postDoc => {
                 var postUID = postDoc.data().uid;
-                console.log(postUID);
                 if (postUID == user.uid) {
-                    console.log("show delete button");
-                    console.log(docID);
+                    // console.log("I am the post owner! show delete button");
+                    console.log("postID is - " + docID);
                     var delIcon = document.getElementById(docID);
                     delIcon.style.display = "block";
-                }else {
+                    delIcon.onclick = () => deletePost(docID);
+                } else {
                     console.log("hide delete button");
                     var delIcon = document.getElementById(docID);
                     delIcon.style.display = "none";
@@ -137,71 +136,23 @@ function showDeleteButton(docID) {
 }
 
 
-//check if the the uid under postID is the same as the current user
-//if it is the same, then show the delete button
-//if it is not the same, then hide the delete button
-
-
-
-// function showDeleteButton(list) {
-    
-//     firebase.auth().onAuthStateChanged(user => {
-//         if (user) {
-//             console.log(user.uid);
-            
-//             // loop through the list of delete icons
-//             for (var i = 0; i < window.delList.length; i++) {
-//                 // console.log(window.delList[i].id);
-//                 //get the postID of the delete icon
-//                 var postID = window.delList[i].id;
-//                 console.log(postID);
-
-//                 //get the post document
-//                 // var postRef = db.collection("posts").doc(postID);
-//                 // //get the uid of the post  
-//                 // postRef.get().then(postDoc => {
-                    
-//                 //     var postUID = postDoc.data().uid;
-//                 //     console.log(postUID);
-//                 //     //if the uid of the post is the same as the current user, then show the delete button
-//                 //     if (postUID == user.uid) {
-//                 //         console.log("show delete button");
-//                 //         console.log(postID);
-                        
-//                 //     }
-//                 //     //if the uid of the post is not the same as the current user, then hide the delete button
-//                 //     else {
-                        
-//                 //         console.log("hide delete button");
-//                 //         console.log( postID);
-                        
-//                 //     }
-//                 // })
-//             }
-//         }
-//     })
-// }
-
-
-
-
-function deletePost(postid) {
-    console.log(postid);
+function deletePost(docID) {
+    console.log("in delete", docID);
     var result = confirm("Want to delete?");
     if (result) {
-        console.log(postid);
+        console.log(docID);
         //Logic to delete the item
-        db.collection("posts").doc(postid)
+        db.collection("posts").doc(docID)
             .delete()
             .then(() => {
-                console.log(postid);
+                window.location.href = "messageboard.html";
                 console.log("1. Document deleted from Posts collection");
-                // deleteFromMyPosts(postid);
+                // deleteFromMyPosts(docID);
             }).catch((error) => {
                 console.error("Error removing document: ", error);
             });
     }
-    // window.location.href = "messageboard.html";
+    console.log(docID + " deleted ");
 }
 
 
