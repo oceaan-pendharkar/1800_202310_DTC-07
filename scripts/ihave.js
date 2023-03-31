@@ -23,7 +23,7 @@ function generateCheckboxes() {
       const docData = doc.data();
 
       // Loop through the fields of the document
-      Object.keys(docData).forEach((key) => {
+      Object.keys(docData).sort().forEach((key) => {
         // Check if the field is a string
         if (typeof docData[key] === 'string') {
           // Create a checkbox element

@@ -4,6 +4,7 @@ const dropdown = document.getElementById("my-dropdown");
 // Get the collection reference for the desired collection
 const collectionRef = db.collection("resources");
 
+
 function populateDropdown() {
   // Fetch the documents from the collection
   collectionRef.get().then((querySnapshot) => {
