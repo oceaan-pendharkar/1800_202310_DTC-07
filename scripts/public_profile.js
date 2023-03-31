@@ -19,6 +19,7 @@ function publishedUserInfo(id) {
             var userCity = userDoc.data().city;
             var userPhone = userDoc.data().phone;
             var picUrl = userDoc.data().profilePic;
+            var userItems = userDoc.data().items;
 
             // if the data fields are not empty, then write them in to the form.
             if (userName != null) {
@@ -37,6 +38,17 @@ function publishedUserInfo(id) {
                 // console.log(picUrl);
                 document.getElementById("profilePic").src = picUrl;
             }
+            if (userItems != null) {
+                for (var i = 0; i < userItems.length; i++) {
+                    var item = userItems[i];
+                    var itemDiv = document.createElement("div");
+                    itemDiv.className = "item";
+                    itemDiv.innerHTML = item;
+                    document.getElementById("itemsPublic").appendChild(itemDiv);
+
+                }
+         
+}
         })
 
     })
@@ -79,17 +91,7 @@ function populateUserInfoFromSearchForItems() {
                         document.getElementById("profilePic").src = picUrl;
                     }
                     
-                    if (userItems != null) {
-                        for (var i = 0; i < userItems.length; i++) {
-                            var item = userItems[i];
-                            var itemDiv = document.createElement("div");
-                            itemDiv.className = "item";
-                            itemDiv.innerHTML = item;
-                            document.getElementById("itemsPublic").appendChild(itemDiv);
-
-                        }
-                 
-        }
+   
                     
                 })
         } else {
