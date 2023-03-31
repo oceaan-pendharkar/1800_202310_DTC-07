@@ -41,10 +41,11 @@ h1 {
 }
 
 #pic-area>img {
-    width: 40%;
-    height: 40%;
+    width: 200px;
+    height: 200px;
     align-self: center;
     padding: 20px;
+    border-radius: 50%!important;
 }
 
 #pic-area>input {
@@ -68,9 +69,9 @@ h1 {
         width: 50%;
     }
 
-    #pic-area>img {
+    /* #pic-area>img {
         width: 100%;
         height: 100%;
-    }
+    } */
 
 }
