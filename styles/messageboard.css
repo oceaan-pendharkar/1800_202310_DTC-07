@@ -34,9 +34,12 @@ a:hover {
 
 .material-icons {
     float: right;
-    margin-top: 12px;
+    margin-top: -6px;
     font-size: 28px !important;
     color: #b6b6b6;
+}
 
-    
+.profile-link {
+    position: relative;
+    left:12.3rem;
 }
