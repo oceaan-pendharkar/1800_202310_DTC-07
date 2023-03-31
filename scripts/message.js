@@ -84,13 +84,13 @@ function renderPosts() {
     else {
         prevButton.disabled = false;
     }
-    if (startIndex != allPosts.docs.length - cardsPerPage) {
+    if (startIndex >= allPosts.docs.length - cardsPerPage) {
+        nextButton.disabled = true;
+    }
+    else {
         nextButton.disabled = false;
     }
     let orderedPosts = allPosts.docs.sort((a, b) => b.data().timestamp - a.data().timestamp);
-    if (startIndex == orderedPosts.length - cardsPerPage - 1) {
-        nextButton.disabled = true;
-    }
 
     for (var i = startIndex; i <= Math.min(endIndex, allPosts.docs.length - 1); i++) {
         var doc = orderedPosts[i];
