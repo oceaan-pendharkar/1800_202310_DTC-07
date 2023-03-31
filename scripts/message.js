@@ -30,9 +30,20 @@ function submitMessage() {
                 //get the user name
                 var userName = messageDoc.data().name;
                 console.log(userName);
+
                 //get the message
-                var message = document.getElementById("message").value;
-                console.log(message);
+                if (document.getElementById("seekHelp_radio").checked) {
+                    console.log("Seeking Help checked");
+                    var message = "<p style='color: #DE905c;' ><b>HELP NEEDED! </b></p>" + document.getElementById("message").value;
+                    console.log(message);
+                } else if (document.getElementById("info_radio").checked) {
+                    console.log("sharing Info checked");
+                    var message = "<p style='color: #83BCD4;' ><b>INFORMATION </b></p>" + document.getElementById("message").value;
+                    console.log(message);
+                } else {
+                    var message = document.getElementById("message").value;
+                    console.log(message);
+                }
                 var time = new Date().toLocaleString();
                 var picUrl = messageDoc.data().profilePic;
 
@@ -103,7 +114,8 @@ function renderPosts() {
         // newcard.querySelector('.profile-link').onclick = () => publishedUserInfo(docID);
         //attach to gallery,//
         document.getElementById("previous-messages").appendChild(newcard);
-        showDeleteButton(docID)
+
+        showDeleteButton(docID);
     }
 
 }
@@ -121,12 +133,11 @@ function showDeleteButton(docID) {
                 var postUID = postDoc.data().uid;
                 if (postUID == user.uid) {
                     // console.log("I am the post owner! show delete button");
-                    console.log("postID is - " + docID);
+                    console.log("My postID is - " + docID);
                     var delIcon = document.getElementById(docID);
                     delIcon.style.display = "block";
                     delIcon.onclick = () => deletePost(docID);
                 } else {
-                    console.log("hide delete button");
                     var delIcon = document.getElementById(docID);
                     delIcon.style.display = "none";
                 }
