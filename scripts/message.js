@@ -121,12 +121,11 @@ function showDeleteButton(docID) {
                 var postUID = postDoc.data().uid;
                 if (postUID == user.uid) {
                     // console.log("I am the post owner! show delete button");
-                    console.log("postID is - " + docID);
+                    console.log("My postID is - " + docID);
                     var delIcon = document.getElementById(docID);
                     delIcon.style.display = "block";
                     delIcon.onclick = () => deletePost(docID);
                 } else {
-                    console.log("hide delete button");
                     var delIcon = document.getElementById(docID);
                     delIcon.style.display = "none";
                 }
