@@ -19,6 +19,9 @@ function populateDropdown() {
       }
     });
 
+    values.sort();
+
+
     // Populate the dropdown with the values
     values.forEach((value) => {
       const option = document.createElement("option");
