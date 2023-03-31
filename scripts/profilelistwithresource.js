@@ -17,10 +17,12 @@ db.collection("users").where("items", "array-contains", itemDocID).get()
 
             const profileCard = document.createElement("div");
             profileCard.className = "card";
+            profileCard.style = "width: 20rem; margin: 10px;";
             profileCard.id = "profileCardTemplate";
 
             const profilePic = document.createElement("img");
-            profilePic.className = "card-img-top";
+            profilePic.className = "rounded-circle card-img-top";
+            profilePic.style = "width: 180px; height: 180px; object-fit: cover; margin: 0 auto; padding: 10px;";
             profilePic.src = userProfilePicture;
             profilePic.alt = "Profile Picture";
             profileCard.appendChild(profilePic);

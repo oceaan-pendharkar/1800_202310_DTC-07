@@ -147,28 +147,12 @@ function deletePost(docID) {
             .then(() => {
                 window.location.href = "messageboard.html";
                 console.log("1. Document deleted from Posts collection");
-                // deleteFromMyPosts(docID);
             }).catch((error) => {
                 console.error("Error removing document: ", error);
             });
     }
     console.log(docID + " deleted ");
 }
-
-
-// function deleteFromMyPosts(postid) {
-//     firebase.auth().onAuthStateChanged(user => {
-//         db.collection("users").doc(user.uid).update({
-//                 myposts: firebase.firestore.FieldValue.arrayRemove(postid)
-//             })
-//             .then(() => {
-//                 console.log("2. post deleted from user doc");
-//                 deleteFromStorage(postid);
-//             })
-//     })
-// }
-
-
 
 
 
