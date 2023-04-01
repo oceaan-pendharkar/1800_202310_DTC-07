@@ -39,10 +39,13 @@ a:hover {
     color: #b6b6b6;
 }
 
-/* .card {
-    display:absolute;
-} */
 
 .profile-link {
     float:right;
+}
+
+.card-image {
+    width:63px;
+    height:63px;
+    object-fit: cover;
 }
