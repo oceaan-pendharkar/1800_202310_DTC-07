@@ -16,7 +16,7 @@ a:hover {
 }
 
 .link {
-    color: #5C8A94;
+    color: var(--darkerTheme);
 }
 
 .time {

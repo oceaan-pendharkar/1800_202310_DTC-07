@@ -2,7 +2,7 @@
 
 :root {
     --theme: #83BCD4;
-    --darkerTheme: #5C8A94;
+    --darkerTheme: #75a6b1;
     --contrastorange: #DE905c;
     --text: #81868d;
     --backgroundWhite: #FFFFFF;
@@ -63,12 +63,12 @@
 .btn-primary,
 .form-check-input:checked {
     color: white;
-    background-color: #5C8A94 !important;
-    border-color: #5C8A94 !important;
+    background-color: var(--darkerTheme) !important;
+    border-color: var(--darkerTheme) !important;
 }
 
 .btn-info {
     color: rgb(62, 62, 62);
-    background-color: #83BCD4;
-    border-color: #83BCD4;
+    background-color: var(--theme);
+    border-color: var(--theme);
 }

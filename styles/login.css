@@ -10,7 +10,7 @@ body {
 
 /* for login overwrite */
 .mdl-button--raised.mdl-button--colored {
-    background: #5C8A94;
+    background: var(--darkerTheme);
     color: rgb(255,255,255);
     border-radius: 18px
 }
