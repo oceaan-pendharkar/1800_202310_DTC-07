@@ -13,7 +13,6 @@ $(".close-btn").click(function () {
 
 
 /// make checkboxes from database
-
 function generateCheckboxes() {
   const resourcesRef = firebase.firestore().collection('resources');
   const checkboxesContainer = document.getElementById('checkboxes');
@@ -72,15 +71,14 @@ function generateCheckboxes() {
   });
 }
 
-
-// Call the generateCheckboxes function
+//append items not in the resources list
 appendOtherItems();
+// Call the generateCheckboxes function
 generateCheckboxes();
 
 
 
 /// To save selected checkboxes to Firestore in user's document
-
 function saveResourceUpdate() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   const IHaveList = [];
@@ -112,9 +110,6 @@ function saveResourceUpdate() {
       console.log("No user is signed in");
     }
   });
-
-
-  /// allow user to input their unique item
 
 }
 
@@ -153,6 +148,7 @@ function saveResourceInput() {
 
 }
 
+//appends items that user self-selected to list of other items so they can edit
 function appendOtherItems() {
   // get user's list of items
   const checkboxesContainer = document.getElementById('checkboxes');
