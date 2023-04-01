@@ -1,23 +1,17 @@
 function getNameFromAuth() {
   firebase.auth().onAuthStateChanged(user => {
-    // Check if a user is signed in:
     if (user) {
-      // Do something for the currently logged-in user here: 
-      console.log(user.uid); //print the uid in the browser console
-      console.log(user.displayName);  //print the user name in the browser console
-      userName = user.displayName;
+      console.log(user.uid); // let me to know who is the user that logged in to get the UID
+      currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
+      currentUser.get().then(userDoc => {
+        //get the user name
+        var userName = userDoc.data().name;
 
-      //method #1:  insert with JS
-      //document.getElementById("name-goes-here").innerText = userName;    
-      // method #2:  insert using jquery
-      // $("#name-goes-here").text(userName); //using jquery
-      //method #3:  insert using querySelector
-      document.querySelector("#name-goes-here").innerText = userName
-
-    } else {
-      // No user is signed in.
+        //$("#name-goes-here").text(userName); //jquery
+        document.getElementById("name-goes-here").innerText = userName;
+      })
     }
-  });
+  })
 }
 getNameFromAuth(); //run the function
 
@@ -31,3 +25,14 @@ if (time < 12) {
   greeting = "evening!";
 }
 document.getElementById("time-of-day").innerHTML = greeting;
+
+
+document.getElementById("iNeed-button").addEventListener("click", function () {
+  window.location.href = "iNeed.html";
+});
+document.getElementById("iHave-button").addEventListener("click", function () {
+  window.location.href = "iHave.html";
+});
+document.getElementById("message-button").addEventListener("click", function () {
+  window.location.href = "messageboard.html";
+});
