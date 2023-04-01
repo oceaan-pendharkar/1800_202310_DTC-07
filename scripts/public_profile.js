@@ -5,7 +5,8 @@ const urlParams = new URLSearchParams(queryString);  // create a new URLSearchPa
 const postID = urlParams.get('docID');  // Web API method to get the value of a specified query string parameter
 console.log(postID);
 
-function publishedUserInfo(id) {
+//shows the user who published a message
+function publishedUserInfoFromMessage(id) {
     console.log(id);
     var thisPost = db.collection("posts").doc(id);
 
@@ -47,16 +48,17 @@ function publishedUserInfo(id) {
                     document.getElementById("itemsPublic").appendChild(itemDiv);
 
                 }
-         
-}
+
+            }
         })
 
     })
 
 }
 
-publishedUserInfo(postID);
+publishedUserInfoFromMessage(postID);
 
+//shows the user who has an item you searched for
 function populateUserInfoFromSearchForItems() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -90,9 +92,9 @@ function populateUserInfoFromSearchForItems() {
                         // console.log(picUrl);
                         document.getElementById("profilePic").src = picUrl;
                     }
-                    
-   
-                    
+
+
+
                 })
         } else {
             // No user is signed in.
@@ -101,11 +103,5 @@ function populateUserInfoFromSearchForItems() {
     });
 }
 populateUserInfoFromSearchForItems();
-
-
-/// User items
-
-
-
 
 $(document).ready() 
