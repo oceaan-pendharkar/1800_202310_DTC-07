@@ -31,6 +31,11 @@ h1 {
     margin-bottom:1.5rem;
 }
 
+.top-layer {
+    position: absolute;
+    top: 20%;
+}
+
 .card {
     border-radius: 20px;
 }
@@ -44,9 +49,9 @@ h1 {
     background-color: var(--theme);
 }
 
-.text-box {
+/* .text-box {
     position:absolute;
     bottom: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
