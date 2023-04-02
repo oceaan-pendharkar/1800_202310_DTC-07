@@ -18,11 +18,11 @@ getNameFromAuth(); //run the function
 const time = new Date().getHours();
 let greeting;
 if (time < 12) {
-  greeting = "morning!";
+  greeting = "morning,";
 } else if (time < 18) {
-  greeting = "afternoon!";
+  greeting = "afternoon,";
 } else {
-  greeting = "evening!";
+  greeting = "evening,";
 }
 document.getElementById("time-of-day").innerHTML = greeting;
 
