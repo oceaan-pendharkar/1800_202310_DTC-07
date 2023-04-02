@@ -3,8 +3,39 @@
     text-align: left;
 }
 
+label {
+    display: block;
+    padding-bottom: 8px;
+    color: gray;
+    text-decoration: none;
+    display: block;
+}
+
 .dropdown-container {
     padding: 8px 16px;
     display: block;
     padding: 20px;
 }
+
+h1 {
+    font-size:27px;
+    color: aliceblue;
+}
+
+.btn {
+    float: right;
+    margin-bottom:1.5rem;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+
+.title-box {
+    border-radius: 25px;
+    padding-top: 12rem;
+    height:30vh;
+    background-color: var(--theme);
+}
+
