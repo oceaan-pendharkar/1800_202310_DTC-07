@@ -36,7 +36,7 @@
   <!-- Other libraries and styles of your own -->
   <!-------------------------------------------->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="./styles/ihave.css">
   <link rel="stylesheet" href="./styles/style.css">
 
 
@@ -55,72 +55,71 @@
 
   <!-- the body of your page goes here -->
 
-  <div class="container-fluid bg-light text-dark p-1">
-    <div class="container bg-light p-1 mt-5 pt-4 ">
-      <h2 class="display-4 text-center"> Select what items you have to share </h2>
+  <div>
+    <div class="container- title-box">
+      <h1 style="text-align: center;">
+        Select your item to share
+      </h1>
     </div>
-  </div>
 
-  <div class="container-fluid bg-light text-dark p-1">
-    <div class="container bg-light pr-5 ">
-  <div id="checkboxes"></div>
-</div>
-</div>
+    <br>
 
-
+    <div class="container">
+      <div class="container-fluid card card-shadow">
+        <div class="container-fluid bg-light text-dark p-1">
+          <div class="container bg-light pr-5 ">
+            <div id="checkboxes"></div>
+          </div>
+        </div>
         <br>
         <div class="container-fluid bg-light text-dark">
-          <div class="container bg-light pr-5 ">
-        <button href="#edit-items" role="button" style="border: 1px, solid, black;"
-          class="btn btn-secondary btn-sm active" data-bs-toggle="modal">Other</button>
+          <button href="#edit-items" role="button" class="btn btn-secondary btn-sm active"
+            data-bs-toggle="modal">Add more</button>
+          <button type="button" style="float:right;" class="btn btn-info btn-sm" onclick="saveResourceUpdate()">Save</button>
         </div>
-      </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- <div class="container text-center main-button mb-5 pb-3">
-    <a href="XXX.html" class="btn btn-info btn-sm rounded-pill p-2" role="button"> Save </a>
-  </div> -->
-
-  <div class="d-flex justify-content-center pb-5">
-    <button type="button" class="btn btn-info btn-sm rounded-pill p-2" onclick="saveResourceUpdate()">Save</button>
-</div>
-
-
-  <!-- our own footer goes here-->
-  <nav id="footerPlaceholder"></nav>
-
-  <!-- Popup-->
-  <div class="modal" id="edit-items" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">What else do you have to offer? </h5>
-          <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close" onlick="">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <input type="text" id="itemName" name="fname"><br><br>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="saveResourceInput()">Save changes</button>
-          <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
 
 
-    
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/ihave.js"></script>
+
+
+
+    <!-- our own footer goes here-->
+    <nav id="footerPlaceholder"></nav>
+
+    <!-- Popup-->
+    <div class="modal" id="edit-items" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">What else do you have to offer? </h5>
+            <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close" onlick="">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="itemName" name="fname"><br><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="saveResourceInput()">Save changes</button>
+            <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!---------------------------------------------->
+      <!-- Your own JavaScript functions go here    -->
+      <!---------------------------------------------->
+      <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+      <script src="./scripts/skeleton.js"></script>
+      <script src="./scripts/main.js"></script>
+      <script src="./scripts/ihave.js"></script>
 
 </body>
 

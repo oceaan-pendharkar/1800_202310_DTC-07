@@ -1,4 +1,39 @@
+body {
+    background-color: rgb(249, 249, 249);
+}
+
 .spacing_only {
     height: 300px;
 }
 
+h1 {
+    font-size:27px;
+    color: aliceblue;
+}
+
+.title-box {
+    border-radius: 25px;
+    padding-top: 6rem;
+    height:18vh;
+    background-color: var(--theme);
+}
+
+.card {
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+}
+
+label {
+    padding-left: 6px;
+}
+
+hr {
+    margin:8px 0px;
+}
+
+.btn.btn-secondary {
+    background-color: rgb(187, 187, 187);
+    border:none;
+    padding-left:0 px;
+
+}
