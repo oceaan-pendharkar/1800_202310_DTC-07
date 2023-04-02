@@ -1,5 +1,9 @@
 body {
-    background-color: rgb(249, 249, 249);
+    background-image: url("/images/background2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
 
 #my-dropdown {
