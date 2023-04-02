@@ -27,3 +27,10 @@ h1 {
     margin-bottom: 5px;
     font-size: 18px;
 }
+
+.inner-text {
+    font-size: 30px;
+    text-align: center;
+    padding: 0;
+}
+
