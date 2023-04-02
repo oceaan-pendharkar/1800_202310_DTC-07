@@ -33,7 +33,9 @@ h1 {
 
 .top-layer {
     position: absolute;
-    top: 20%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .card {
@@ -49,9 +51,9 @@ h1 {
     background-color: var(--theme);
 }
 
-/* .text-box {
+.text-box {
     position:absolute;
-    bottom: 5%;
+    bottom:40%;
     left: 50%;
     transform: translate(-50%, -50%);
-} */
+}
