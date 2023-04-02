@@ -23,7 +23,7 @@ h1 {
 .btn-secondary {
     background-color: var(--contrastorange);
     border: none;
-    color: black;
+    color: white;
 }
 
 .form-group {
@@ -55,6 +55,7 @@ h1 {
 }
 
 #logout-button {
+    float:right;
     margin-bottom: 60px;
     margin-right: 0px;
     margin-left: 85%;

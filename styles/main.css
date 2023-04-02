@@ -5,7 +5,7 @@ h1 {
 
 .main-button {
     /* background-color: var(--theme); */
-    background-color: var(--darkerTheme);
+    /* background-color: var(--darkerTheme); */
     border: none;
     color: white;
     padding: 15px 32px;
