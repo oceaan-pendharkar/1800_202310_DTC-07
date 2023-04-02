@@ -34,11 +34,11 @@ function submitMessage() {
                 //get the message
                 if (document.getElementById("seekHelp_radio").checked) {
                     console.log("Seeking Help checked");
-                    var message = "<p style='color: var(--contrastOrange);' ><b>HELP NEEDED! </b></p>" + document.getElementById("message").value;
+                    var message = "<p style='color: #efa954;' ><b>HELP NEEDED! </b></p>" + document.getElementById("message").value;
                     console.log(message);
                 } else if (document.getElementById("info_radio").checked) {
                     console.log("sharing Info checked");
-                    var message = "<p style='color: var(--theme);' ><b>INFORMATION </b></p>" + document.getElementById("message").value;
+                    var message = "<p style='color: #83BCD4;' ><b>INFORMATION </b></p>" + document.getElementById("message").value;
                     console.log(message);
                 } else {
                     var message = document.getElementById("message").value;
