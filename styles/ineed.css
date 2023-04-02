@@ -37,8 +37,16 @@ h1 {
 
 
 .title-box {
+    position: relative;
     border-radius: 25px;
-    padding-top: 12rem;
+    padding-top: 50%;
     height:30vh;
     background-color: var(--theme);
+}
+
+.text-box {
+    position:absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
