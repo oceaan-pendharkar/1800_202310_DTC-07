@@ -71,21 +71,20 @@ function saveUserInfo() {
                         userNeighbourhood = document.getElementById('neighbourhoodInput').value;
                         userCity = document.getElementById('cityInput').value;
                         userPhone = document.getElementById('phoneInput').value;
-
-                        //Asynch call to save the form fields into Firestore.
+                        
                         db.collection("users").doc(user.uid).update({
                             name: userName,
                             neighbourhood: userNeighbourhood,
                             city: userCity,
                             phone: userPhone,
                             profilePic: url // Save the URL into users collection
+                        }).then(function () {
+                            console.log('Added Profile Pic URL to Firestore.');
+                            console.log('Saved use profile info');
+                            document.getElementById('personalInfoFields').disabled = true;
+                            window.location.href = "profile.html";  // redirect to profile page
                         })
-                            .then(function () {
-                                console.log('Added Profile Pic URL to Firestore.');
-                                console.log('Saved use profile info');
-                                document.getElementById('personalInfoFields').disabled = true;
-                                window.location.href = "profile.html";  // redirect to profile page
-                            })
+
                     })
             })
     })
