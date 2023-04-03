@@ -22,7 +22,8 @@ var uiConfig = {
           email: user.email,                         //with authenticated user's ID (user.uid)
           phone: "",
           neighbourhood: "",
-          items: []
+          items: [],
+          profilePic: "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
         }).then(function () {
           console.log("New user added to firestore");
           window.location.assign("main.html");       //re-direct to main.html after signup
