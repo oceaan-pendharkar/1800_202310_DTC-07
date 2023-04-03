@@ -65,13 +65,13 @@ function saveUserInfo() {
                 //Asynch call to get URL from Cloud
                 storageRef.getDownloadURL()
                     .then(function (url) { // Get "url" of the uploaded file
-                        console.log("Got the download URL.");
-                        //get values from the from
+                        console.log("Got the download " + url);
+                        //get values from the form
                         userName = document.getElementById('nameInput').value;
                         userNeighbourhood = document.getElementById('neighbourhoodInput').value;
                         userCity = document.getElementById('cityInput').value;
                         userPhone = document.getElementById('phoneInput').value;
-                        
+
                         db.collection("users").doc(user.uid).update({
                             name: userName,
                             neighbourhood: userNeighbourhood,
@@ -82,12 +82,13 @@ function saveUserInfo() {
                             console.log('Added Profile Pic URL to Firestore.');
                             console.log('Saved use profile info');
                             document.getElementById('personalInfoFields').disabled = true;
-                            window.location.href = "profile.html";  // redirect to profile page
                         })
+                        
 
                     })
             })
     })
+    window.location.href = "profile.html";  // redirect to profile page
 }
 
 var ImageFile;      //global variable to store the File Object reference
