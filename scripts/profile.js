@@ -82,13 +82,15 @@ function saveUserInfo() {
                             console.log('Added Profile Pic URL to Firestore.');
                             console.log('Saved use profile info');
                             document.getElementById('personalInfoFields').disabled = true;
+                            window.location.href = "profile.html";  // redirect to profile page
                         })
                         
 
                     })
             })
     })
-    window.location.href = "profile.html";  // redirect to profile page
+    
+    
 }
 
 var ImageFile;      //global variable to store the File Object reference
