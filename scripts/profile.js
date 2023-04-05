@@ -33,7 +33,9 @@ function populateUserInfo() {
                     if (picUrl != null) {
                         console.log(picUrl);
                         // use this line if "mypicdiv" is a "div"
-                        $("#pic-area").prepend("<img src='" + picUrl + "'>")
+                        // $("#pic-area").prepend("<img src='" + picUrl + "'>")
+                        // use this line if "mypicdiv" is an "img"
+                        document.getElementById("profile-pic").src = picUrl;
                     }
                     else
                         console.log("picURL is null");
@@ -84,20 +86,20 @@ function saveUserInfo() {
                             document.getElementById('personalInfoFields').disabled = true;
                             window.location.href = "profile.html";  // redirect to profile page
                         })
-                        
+
 
                     })
             })
     })
-    
-    
+
+
 }
 
 var ImageFile;      //global variable to store the File Object reference
 
 function chooseFileListener() {
     const fileInput = document.getElementById("profile-pic-input");   // pointer #1
-    const image = document.getElementById("profile-pic-goes-here");   // pointer #2
+    const image = document.getElementById("profile-pic");   // pointer #2
 
     //attach listener to input file
     //when this file changes, do something
