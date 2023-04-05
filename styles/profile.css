@@ -45,7 +45,7 @@ h1 {
     height: 200px;
     align-self: center;
     padding: 20px;
-    border-radius: 50%!important;
+    border-radius: 50% !important;
     object-fit: cover;
 }
 
@@ -55,10 +55,16 @@ h1 {
 }
 
 #logout-button {
-    float:right;
+    float: right;
     margin-bottom: 60px;
     margin-right: 0px;
     margin-left: 85%;
+}
+
+#edit-photo,
+#save-photo {
+    align-self: center;
+    margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {

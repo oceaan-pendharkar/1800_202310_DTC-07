@@ -1,4 +1,5 @@
 var currentUser;
+var ImageFile;      //global variable to store the File Object reference
 
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
@@ -32,9 +33,6 @@ function populateUserInfo() {
                     }
                     if (picUrl != null) {
                         console.log(picUrl);
-                        // use this line if "mypicdiv" is a "div"
-                        // $("#pic-area").prepend("<img src='" + picUrl + "'>")
-                        // use this line if "mypicdiv" is an "img"
                         document.getElementById("profile-pic").src = picUrl;
                     }
                     else
@@ -51,13 +49,60 @@ function populateUserInfo() {
 populateUserInfo();
 
 function editUserInfo() {
-    //Enable the form fields
-    document.getElementById('personalInfoFields').disabled = false;
+    //enable name field
+    document.getElementById("nameInput").disabled = false;
+    //enable neighbourhood field
+    document.getElementById("neighbourhoodInput").disabled = false;
+    //enable city field
+    document.getElementById("cityInput").disabled = false;
+    //enable phone field
+    document.getElementById("phoneInput").disabled = false;
 }
 
+function editPhoto() {
+    //disable photo input
+    document.getElementById("profile-pic-input").disabled = false;
+}
+
+//use editUserInfo() to enable the form fields when you click edit
+document.getElementById("edit-profile").addEventListener("click", editUserInfo);
+
+//use editPhoto() to enable the form field when you click edit
+document.getElementById("edit-photo").addEventListener("click", editPhoto);
+
 function saveUserInfo() {
+    //save items from input fields
+    var name = document.getElementById("nameInput").value;
+    var neighbourhood = document.getElementById("neighbourhoodInput").value;
+    var city = document.getElementById("cityInput").value;
+    var phone = document.getElementById("phoneInput").value;
+
+    //disable name field
+    document.getElementById("nameInput").disabled = true;
+    //disable neighbourhood field
+    document.getElementById("neighbourhoodInput").disabled = true;
+    //disable city field
+    document.getElementById("cityInput").disabled = true;
+    //disable phone field
+    document.getElementById("phoneInput").disabled = true;
+
+    //save the data to the database
+    currentUser.update({
+        name: name,
+        neighbourhood: neighbourhood,
+        city: city,
+        phone: phone
+    }).then(function () {
+        console.log('Saved use profile info');
+        window.location.href = "/html/profile.html";  // redirect to profile page
+    })
+
+}
+
+function savePhoto() {
     firebase.auth().onAuthStateChanged(function (user) {
         var storageRef = storage.ref("images/" + user.uid + ".jpg");
+
 
         //Asynch call to put File Object (global variable ImageFile) onto Cloud
         storageRef.put(ImageFile)
@@ -68,34 +113,25 @@ function saveUserInfo() {
                 storageRef.getDownloadURL()
                     .then(function (url) { // Get "url" of the uploaded file
                         console.log("Got the download " + url);
-                        //get values from the form
-                        userName = document.getElementById('nameInput').value;
-                        userNeighbourhood = document.getElementById('neighbourhoodInput').value;
-                        userCity = document.getElementById('cityInput').value;
-                        userPhone = document.getElementById('phoneInput').value;
 
                         db.collection("users").doc(user.uid).update({
-                            name: userName,
-                            neighbourhood: userNeighbourhood,
-                            city: userCity,
-                            phone: userPhone,
-                            profilePic: url // Save the URL into users collection
+                            profilePic: url
                         }).then(function () {
                             console.log('Added Profile Pic URL to Firestore.');
                             console.log('Saved use profile info');
-                            document.getElementById('personalInfoFields').disabled = true;
-                            window.location.href = "profile.html";  // redirect to profile page
+                            document.getElementById('profile-pic-input').disabled = true;
+                            window.location.href = "/html/profile.html";  // redirect to profile page
                         })
-
-
                     })
             })
     })
-
-
 }
 
-var ImageFile;      //global variable to store the File Object reference
+//use saveUserInfo() to save the form fields when you click save
+document.getElementById("save-profile-info").addEventListener("click", saveUserInfo);
+
+//use savePhoto() to save the form fields when you click save
+document.getElementById("save-photo").addEventListener("click", savePhoto);
 
 function chooseFileListener() {
     const fileInput = document.getElementById("profile-pic-input");   // pointer #1

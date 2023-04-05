@@ -51,34 +51,41 @@
     <div class="container">
         <h1>User Profile </h1>
         <form>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
+            <fieldset class="mb-3" id="personalInfoFields">
                 <div class="container text-center py-3" id="pic-area">
                     <img src="" id="profile-pic" alt="Profile Picture" />
-                    <input type="file" id="profile-pic-input" accept="image/*" />
+                    <input type="file" id="profile-pic-input" accept="image/*" disabled />
+                    <br>
+                    <div class="d-flex justify-content-end mt-5">
+                        <button type="button" class="btn btn-secondary" id="edit-photo">Edit Photo</button>
+                        <span style="width: 10px"></span>
+                        <button type="button" class="btn btn-info" id="save-photo">Save Photo</button>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name" disabled>
                 </div>
                 <div class="form-group">
                     <label>Neighbourhood</label>
                     <input type="text" id="neighbourhoodInput" class="form-control"
-                        placeholder="Enter your neighbourhood">
+                        placeholder="Enter your neighbourhood" disabled>
                 </div>
                 <div class="form-group">
                     <label>City</label>
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city" disabled>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>
                     <input type="tel" id="phoneInput" class="form-control" placeholder="Enter your phone number"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" disabled>
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                <button type="button" class="btn btn-secondary" id="edit-profile">Edit Info</button>
                 <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                <button type="button" class="btn btn-info" id="save-profile-info">Save Info</button>
             </div>
             <br>
 
@@ -88,7 +95,7 @@
                 <h2>Supplies to Share</h2>
                 <p id="listOfItems"></p>
 
-                
+
                 <!-- <button type="button" class="btn btn-secondary" id="editItems" onclick="editItems()">Edit
                     Items</button> -->
 
