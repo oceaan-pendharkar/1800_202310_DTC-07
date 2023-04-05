@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>User Profile</title>
+    <title>Search Results</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -32,10 +32,9 @@
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/public_profile.css">
-    
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/skeleton.css">
+    <link rel="stylesheet" href="/styles/profilelistwithresource.css">
 
 </head>
 
@@ -49,43 +48,36 @@
     <nav id="navbarPlaceholder"></nav>
 
 
+    <!-- main content -->
+
     <div class="container mt-5 pt-5">
-        <img width="180px" height="180px" style="object-fit: cover;" id="profilePic" src="./images/userplaceholder.jpeg" class="rounded-circle mx-auto d-block" alt="">
-        <div class="center mt-4">
-            <h2 id="userName">User Name</h2>
-            <p class="subheading" id="userCity">City</p>
+        <h2> Neighbours with <span id="search-item"> details </span></h2>
+        <div id="details-go-here"></div>
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="profileCardGroup" class="row row-cols-auto">
+            </div>
         </div>
     </div>
 
-    <div class="border-top"></div>
-
-    <div class="container my-3 d-flex justify-content-center">
-        <table class="table-sm" style="border-style:hidden;">
-            <tbody>
-                <tr>
-                    <td class="d-flex justify-content-end">
-                        <span class="material-icons">person_pin</span>
-                    </td>
-                    <td id="neighbourhoodPublic">neighbourhood</td>
-                </tr>
-                <tr>
-                    <td class="d-flex justify-content-end">
-                        <span class="material-icons">phone_iphone</span>
-                    </td>
-                    <td id="phonePublic">777-777-7777</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- template -->
+    <div>
+        <template id="profileCardTemplate">
+            <div class="card bg-secondary">
+                <img class="rounded-circle card-img-top">
+                <div class="card-body bg-light">
+                    <h5 class="name">placeholder</h5>
+                    <p class="profilePicture">placeholder</p>
+                    <br>
+                    <p class="description">This card has supporting text below as a natural lead-in to additional
+                        content.
+                    </p>
+                </div>
+            </div>
+        </template>
     </div>
 
-    <div class="border-top"></div>
 
-    <div class="container">
-        <div class="center mt-4 mb-5 pb-2">
-            <h4 >Items Available</h4>
-            <p id="itemsPublic" > </p>
-        </div>
-    </div>
 
 
     <!-- footer by Grace -->
@@ -98,9 +90,9 @@
 
     <!-- Link to scripts of your own -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
-    <script src="./scripts/public_profile.js"></script>
-    <script src="./scripts/skeleton.js"></script>
+    <script src="/scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="/scripts/profilelistwithresource.js"></script>
+    <script src="/scripts/skeleton.js"></script>
 
 </body>
 

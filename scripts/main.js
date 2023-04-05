@@ -28,11 +28,11 @@ document.getElementById("time-of-day").innerHTML = greeting;
 
 
 document.getElementById("iNeed-button").addEventListener("click", function () {
-  window.location.href = "ineed.html";
+  window.location.href = "/html/ineed.html";
 });
 document.getElementById("iHave-button").addEventListener("click", function () {
-  window.location.href = "ihave.html";
+  window.location.href = "/html/ihave.html";
 });
 document.getElementById("message-button").addEventListener("click", function () {
-  window.location.href = "messageboard.html";
+  window.location.href = "/html/messageboard.html";
 });
