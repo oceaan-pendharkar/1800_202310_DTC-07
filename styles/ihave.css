@@ -11,19 +11,23 @@ h1 {
     color: aliceblue;
 }
 
-.title-box {
+/* .title-box {
     position: relative;
-    margin-top: 83px;
     border-radius: 25px;
-    padding-top: 4.0rem;
+    margin-top: 83px;
+    padding-top: 1rem;
     background-color: var(--theme);
-}
+} */
 
 .text-box {
-    position: absolute;
+    margin-top: 83px;
+    background-color: var(--theme);
+    padding:0.7rem;
+    border-radius: 3px;
+    /* position: absolute;
     bottom: -10px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 .card {
