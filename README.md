@@ -65,7 +65,6 @@ Here are some known limitations:
 * We took out the option to search for an item by typing because of the possibility of user error. However, this means that when users add an item to the list of supplies they have to share that isn't on our provided list, the only way people can see that they have that item is when they go to their profile (either through the message board or through "find supplies"). 
 * There is no way to select all the checkboxes or un-select all the checkboxes on the "edit items"/"share supplies" page
 * The styling of the items is not consistent through the items on "edit items"/"share items" page
-* Our image at the top of the message board is still the placeholder image instead of the logged in user's image.
 
 ## 6. Features for Future
 What we'd like to build in the future:
@@ -90,7 +89,7 @@ Content of the project folder:
 ├── main.html                # home page
 ├── 404.html                 # message from firestore for when a page can't be found
 ├── firebase.json            # defines which files to use for hosting
-├── firebase.indexes.json
+├── firebase.indexes.json    # define indexes for the Cloud Firestore database in Firebase
 ├── firebase.rules           # defines firestore rules
 ├── firestore.rules          # defines storage rules
 └── README.md
@@ -115,21 +114,18 @@ It has the following subfolders and files:
     thanksresourcesupdate.html      # thank you page after updating supplies list
 
 ├── images                   # Folder for images
-    back.png                 # Acknowledge sources
-    background2.svg
-    home_button.png
-    ihave.svg
-    ineed.svg
-    login-background.svg
-    logo-main.svg
-    logo-ready.svg
-    logo.png
-    logo.svg
-    message.svg
-    profile.png
-    search.png
-    sos.png
-    userplaceholder.jpeg
+    back.png                 # Google Mateiral Icons
+    background2.svg          # Designed by Grace using Adobe Illustrator
+    home_button.png          # Google Mateiral Icons
+    ihave.svg                # Designed by Grace using Adobe Illustrator
+    ineed.svg                # Designed by Grace using Adobe Illustrator
+    login-background.svg     # Designed by Grace using Adobe Illustrator
+    logo-main.svg            # Designed by Grace using Adobe Illustrator
+    logo-ready.svg           # Designed by Grace using Adobe Illustrator
+    logo.svg                 # Designed by Grace using Adobe Illustrator
+    message.svg              # Designed by Grace using Adobe Illustrator
+    profile.png              # Google Mateiral Icons
+    userplaceholder.jpeg     # Freepik
 
 ├── scripts                     # Folder for scripts
     authentication.js           # user authentication/login
