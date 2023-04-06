@@ -49,3 +49,9 @@ a:hover {
     height:63px;
     object-fit: cover;
 }
+
+.user-image {
+    width:30px;
+    height:30px;
+    object-fit: cover;
+}

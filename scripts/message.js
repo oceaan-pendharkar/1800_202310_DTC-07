@@ -8,9 +8,12 @@ function userMessageInfo() {
             currentUser.get().then(userDoc => {
                 //get the user name
                 var userName = userDoc.data().name;
+                var picUrl = userDoc.data().profilePic
+                console.log(picUrl);
 
                 //$("#name-goes-here").text(userName); //jquery
                 document.getElementById("name-goes-here").innerText = userName;
+                document.getElementById("user-placeholder").src = picUrl;
             })
         }
     })
